@@ -1,6 +1,6 @@
 coche;2
 nieve;2
-hueso;1;tenemos más de 200
+hueso;1
 titan;2
 flujo;1
 disco;1
@@ -11,7 +11,7 @@ atril;1
 ganso;1
 negro;1
 botar;1
-bruja;1;las hay con escoba
+bruja;1
 errar;3
 girar;2
 grasa;2
@@ -20,7 +20,7 @@ tonto;3
 monja;1
 bonus;1
 cotar;1
-oveja;1;las hay churras y merinas
+oveja;1
 caido;1
 burro;2
 falsa;2
@@ -46,7 +46,7 @@ bueno;1
 crema;1
 china;1
 acabo;2
-tinta;2;la hay china
+tinta;2
 espia;1
 dulce;1
 zorro;3
@@ -58,7 +58,7 @@ jaleo;1
 jurco;1
 tarta;3
 abeja;2
-samba;2;se baila en portugués
+samba;2
 lista;1
 envio;1
 gusto;1
@@ -95,7 +95,7 @@ lituo;1
 lindo;1
 albur;1
 danza;2
-koala;2;es lento y australiano
+koala;2
 licra;1
 orden;1
 rubio;1
@@ -130,7 +130,7 @@ trece;2
 laser;1
 polar;1
 lugar;1
-silla;2;las hay con cuatro patas
+silla;2
 misil;2
 actor;1
 arena;2
