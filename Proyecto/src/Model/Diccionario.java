@@ -7,7 +7,20 @@ import java.io.*;
 
 public class Diccionario {
 
-	public static String LeerArchivo(String DiccionarioFile) {
+	private ArrayList<Palabra> listaPalabras = TodasPalabrasDicc(sacarPalabras("../hola.txt"), sacarDificultad("../hola.txt")); 
+	
+	public Diccionario() {
+		super();
+		// TODO Auto-generated constructor stub
+	}
+
+	public static void main(String [] args) {
+		ArrayList<String> listaPalabras= new ArrayList<String>(); 
+		String DiccionarioFile = "../hola.txt";
+		Diccionario d = new Diccionario();		
+	}
+	
+	public  String LeerArchivo(String DiccionarioFile) {
 		String linea = "";
 		try {
 			File fichero = new File(DiccionarioFile);
@@ -24,32 +37,101 @@ public class Diccionario {
 		return linea;
 	}
 
-	public static ArrayList<String> añadirListapalabras(String DiccionarioFile) { // este metodo añade contenido del
-																					// archivo a un arraylist
-		ArrayList<String> listaPalabras = new ArrayList<>();
-
-		try {
-			File fichero = new File(DiccionarioFile);
-			Scanner sc = new Scanner(fichero);
-
-			while (sc.hasNextLine()) {
-
-				String linea = sc.nextLine();
-				String[] separador = linea.split(";");
-				listaPalabras.add(Arrays.toString(separador));
-			}
-
-			sc.close();
-
-		} catch (Exception e) {
-			System.out.println("no se puede leer el archivo" + e.getMessage());
+	
+	public ArrayList<Palabra> TodasPalabrasDicc(ArrayList<String> todasPalabras, int[] todosNumeros) {
+		ArrayList<Palabra> listPalabras = new ArrayList<Palabra>();
+		for(int i=0;i<620;i++) {
+			Palabra p = new Palabra(todasPalabras.get(i), todosNumeros[i]);
+			listPalabras.add(p);
 		}
+		return listPalabras;
+	}
+		public int[] sacarDificultad(String DiccionarioFile) {
+		int[] num = new int[620];
+		
+        try {
+            File fichero = new File(DiccionarioFile);
+            Scanner sc = new Scanner(fichero);
+            ArrayList<String> palabras = new ArrayList<String>();
+            ArrayList<String> listaPalabras = new ArrayList<String>();
+            int j=0;
+            char aux =' ';
+            while (sc.hasNextLine()) {
 
-		if (listaPalabras.isEmpty()) {
-			return null; // por si no encuentre palabras en el archivo
-		}
-		return listaPalabras;
+                String linea = sc.nextLine();
+                String[] separador = linea.split(";");
+                 palabras.add(separador[0]);
+                listaPalabras.add(Arrays.toString(separador));
+                aux= separador[1].charAt(0);
+                num[j] = Character.getNumericValue(aux);
+                j++;
+                
+//                Palabra palabra= new Palabra(Arrays.toString(separador));
+//                listaPalabras.add(palabra);
+            }
+            System.out.println(palabras);
+            for(int n:num) {
+            	System.out.println(n);
+            }
+            
+            sc.close();
 
+        } catch (Exception e) {
+            System.out.println("no se puede leer el archivo" + e.getMessage());
+        }
+
+        
+        return num;
+
+
+    }
+	
+	public  ArrayList<String> sacarPalabras(String DiccionarioFile) {
+
+		
+		ArrayList<String> listaPalabras = new ArrayList<String>();
+        try {
+            File fichero = new File(DiccionarioFile);
+            Scanner sc = new Scanner(fichero);
+            ArrayList<String> palabras = new ArrayList<String>();
+            int[] num = new int[620];
+            int j=0;
+            char aux =' ';
+            while (sc.hasNextLine()) {
+
+                String linea = sc.nextLine();
+                String[] separador = linea.split(";");
+                 palabras.add(separador[0]);
+                listaPalabras.add(Arrays.toString(separador));
+                aux= separador[1].charAt(0);
+                num[j] = Character.getNumericValue(aux);
+                j++;
+                
+//                Palabra palabra= new Palabra(Arrays.toString(separador));
+//                listaPalabras.add(palabra);
+            }
+            System.out.println(palabras);
+            for(int n:num) {
+            	System.out.println(n);
+            }
+            
+            sc.close();
+
+        } catch (Exception e) {
+            System.out.println("no se puede leer el archivo" + e.getMessage());
+        }
+
+        if (listaPalabras.isEmpty()) {
+            return null; // por si no encuentre palabras en el archivo
+        }
+        return listaPalabras;
+
+
+    }
+
+	public ArrayList<Palabra> getListaPalabra() {
+		// TODO Auto-generated method stub
+		return this.getListaPalabra();
 	}
 
 }
