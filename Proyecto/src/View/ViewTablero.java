@@ -10,7 +10,7 @@ public class ViewTablero extends JFrame {
 	
 	public static void main(String [] args) {
 		
-		ViewTablero m = new ViewTablero();
+	//	ViewTablero m = new ViewTablero();  
 		
 	}
 	

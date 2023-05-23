@@ -4,7 +4,7 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 import Model.*;
-
+/*
 public class ControlTablero implements ActionListener{
 	ViewTablero tablero;
 	Tablero t = new Tablero();
@@ -23,3 +23,4 @@ public class ControlTablero implements ActionListener{
 		
 	}
 }
+*/

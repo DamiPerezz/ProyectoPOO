@@ -3,16 +3,16 @@ package Model;
 public class Palabra {
 
 	
-	public static String palabra;
-	public static int dificultad;
+	public String palabra;
+	public int dificultad;
 	//static ArrayList<String> listaPalabras = new ArrayList <String> ();
 	
 	
 	
 	public Palabra(String palabra, int dificultad) {
 		super();
-		Palabra.palabra = palabra;
-		Palabra.dificultad = dificultad;
+		this.palabra = palabra;
+		this.dificultad = dificultad;
 	}
 
 

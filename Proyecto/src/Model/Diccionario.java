@@ -13,12 +13,22 @@ public class Diccionario {
 		super();
 		// TODO Auto-generated constructor stub
 	}
+	
+	public String toString () {
+		for (int i=0; i<listaPalabras.size();i++) {
+			System.out.println("palabra:" + listaPalabras.get(i).palabra + "dificultad:" + listaPalabras.get(i).dificultad);
+		}
+		
+		return ("fsdafsadf");
+	}
 
+	/*
 	public static void main(String [] args) {
 		ArrayList<String> listaPalabras= new ArrayList<String>(); 
 		String DiccionarioFile = "../hola.txt";
 		Diccionario d = new Diccionario();		
 	}
+	*/
 	
 	public  String LeerArchivo(String DiccionarioFile) {
 		String linea = "";
@@ -47,7 +57,7 @@ public class Diccionario {
 		return listPalabras;
 	}
 		public int[] sacarDificultad(String DiccionarioFile) {
-		int[] num = new int[620];
+		int[] num = new int[620];  //creo que esto esta dando problemas en el Tablero.getPalabraRandom()
 		
         try {
             File fichero = new File(DiccionarioFile);
@@ -69,10 +79,13 @@ public class Diccionario {
 //                Palabra palabra= new Palabra(Arrays.toString(separador));
 //                listaPalabras.add(palabra);
             }
+            
+            /*
             System.out.println(palabras);
             for(int n:num) {
             	System.out.println(n);
             }
+            */
             
             sc.close();
 
@@ -110,10 +123,13 @@ public class Diccionario {
 //                Palabra palabra= new Palabra(Arrays.toString(separador));
 //                listaPalabras.add(palabra);
             }
+            
+            /*
             System.out.println(palabras);
             for(int n:num) {
             	System.out.println(n);
             }
+            */
             
             sc.close();
 
@@ -131,7 +147,7 @@ public class Diccionario {
 
 	public ArrayList<Palabra> getListaPalabra() {
 		// TODO Auto-generated method stub
-		return this.getListaPalabra();
+		return this.listaPalabras;
 	}
 
 }

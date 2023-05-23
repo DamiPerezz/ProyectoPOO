@@ -1,15 +1,32 @@
 package Control;
-
-import java.util.ArrayList;
-
-import Model.Diccionario;
-import Model.Palabra;
+import Model.*;
+//import View.ViewTablero;
 
 public class Sistema {
-	public static Diccionario diccionario;
+	public static Diccionario diccionario = new Diccionario();
+	
 
-//	//public static void main(String[] args) {
-//
+		public static void main(String[] args) {
+			
+			/*//////////////////////////////////////////////////////////////////////////////
+			Partida partida1 = new Partida(); 
+			Partida partida2 = new Partida();
+			
+			System.out.println(partida1.getPalabraCorrecta());
+			System.out.println(partida2.getPalabraCorrecta());
+			*///////////////////////////////////////////////////////////////////////////////
+			
+//			System.out.print(diccionario);
+			System.out.print(diccionario.sacarPalabras("../hola.txt"));
+//			System.out.println(diccionario.getListaPalabra());
+			
+			//ViewTablero tablero1 = new ViewTablero();
+			
+			
+		}
+			
+		
+
 //		String DiccionarioFile = "../hola.txt";
 //
 //		Diccionario.LeerArchivo(DiccionarioFile);

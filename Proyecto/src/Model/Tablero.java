@@ -10,27 +10,28 @@ public class Tablero {
 	private int contadorIntentos;
 	
 	
-	private String palabra;		//Palabra que se debe adivinar
-	private ArrayList<Palabra> diccionario; //Lista de todas las palabras
+
+	//private ArrayList<Palabra> diccionario; //Lista de todas las palabras
 	
-	Diccionario D = new Diccionario();
+	static Diccionario D = new Diccionario();
 	
 	public Tablero() {
 		super();
 		
 	}
 	
-	public ArrayList<Palabra> getDiccionario(){
-		diccionario = D.getListaPalabra();
+	public static ArrayList<Palabra> getDiccionario(){
+		ArrayList<Palabra> diccionario = D.getListaPalabra();
 		return diccionario;
 	}
 	
 	
 	//Elige una palabra random del diccionario y la guarda en String palabra
-	public String getPalabraRandom() {
-		int numAleatorio = (int) (Math.random() * diccionario.size());
-		Palabra instanciaPalabra = diccionario.get(numAleatorio);
-		palabra = instanciaPalabra.getPalabra();
+	public static String getPalabraRandom() {
+		int numAleatorio = (int) (Math.random() * Tablero.getDiccionario().size());
+		//System.out.println(numAleatorio);
+		Palabra instanciaPalabra = Tablero.getDiccionario().get(numAleatorio);
+		String palabra = instanciaPalabra.getPalabra();
 		return palabra;
 	}
 	

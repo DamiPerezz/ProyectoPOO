@@ -5,8 +5,22 @@ import java.util.Scanner;
 
 public class Partida {
 	
+	public Partida() {
+		super();
+		// TODO Auto-generated constructor stub
+	}
+
+
 	private Usuario user;
+	private String palabraCorrecta = Tablero.getPalabraRandom();
 	
+	
+	public String getPalabraCorrecta() {
+		
+		return palabraCorrecta;
+	}
+
+
 	public static Usuario SeleccionarUsuario() {
 		Usuario user = new Usuario();
 		Scanner teclado = new Scanner(System.in);
