@@ -53,8 +53,12 @@ public class ControlTablero implements ActionListener{
 			ActualizarTablero(t.getContadorIntentos(), input);
 			
 		}
-		
-	
+		if(e.getSource() == ventana.salir) {
+			System.exit(0);
+		}
+		if(e.getSource() == ventana.guardarPartida) {
+			System.exit(0);
+		}
 		
 	}
 }

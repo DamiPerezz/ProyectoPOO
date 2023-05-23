@@ -7,6 +7,9 @@ import java.awt.GridLayout;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
+import javax.swing.JMenu;
+import javax.swing.JMenuBar;
+import javax.swing.JMenuItem;
 import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 import javax.swing.JTable;
@@ -21,6 +24,11 @@ public class ViewTablero extends JFrame {
 	public JButton boton;
 	public JLabel valores[][];
 	public ControlTablero controlador;
+	private JMenuBar barramenu;
+	private JMenu opciones;
+	public JMenuItem salir;
+	public JMenuItem guardarPartida;
+	
 	
 	public static void main(String [] args) {
 		
@@ -36,12 +44,29 @@ public class ViewTablero extends JFrame {
 	
 	public  void IniciarVentana() {
 		
+		controlador = new ControlTablero(this); 
+		
 		marco= new JFrame();
 		marco.setSize(400,600);
 		marco.setResizable(false);
 		
+		
 		JPanel panel= new JPanel();
 		panel.setLayout(new GridLayout(5,5));
+		
+		
+		//Añade barra de opciones
+		barramenu = new JMenuBar();
+		opciones = new JMenu("Opciones");
+		barramenu.add(opciones);
+		salir = new JMenuItem("Salir");
+		opciones.add(salir);
+		salir.addActionListener(controlador);
+		guardarPartida = new JMenuItem("Guardar y Salir");
+		guardarPartida.addActionListener(controlador);
+		opciones.add(guardarPartida);
+		marco.setJMenuBar(barramenu);
+		barramenu.setVisible(true);
 		
 		valores = new JLabel[5][5];
 		
@@ -58,10 +83,10 @@ public class ViewTablero extends JFrame {
 		}
 		
 		marco.setLayout(new BorderLayout());
-		marco.add(panel,BorderLayout.NORTH);
+		marco.add(panel,BorderLayout.CENTER);
 		
 		boton = new JButton ("Introducir palabra");
-		controlador = new ControlTablero(this); 
+		
 		boton.addActionListener(controlador);
 		
 		marco.add(boton, BorderLayout.SOUTH);

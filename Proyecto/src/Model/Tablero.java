@@ -21,16 +21,13 @@ public class Tablero {
 	public int getContadorIntentos() {
 		return contadorIntentos;
 	}
-
 	public void setContadorIntentos(int contadorIntentos) {
 		this.contadorIntentos = contadorIntentos;
 	}
-
 	public Tablero() {
 		super();
 		
 	}
-	
 	public static ArrayList<Palabra> getDiccionario(){
 		ArrayList<Palabra> diccionario = D.getListaPalabra();
 		return diccionario;

@@ -1,4 +1,7 @@
 package Control;
+import java.io.File;
+import java.io.FileWriter;
+
 import Model.*;
 //import View.ViewTablero;
 import View.ViewTablero;
@@ -8,12 +11,14 @@ public class Sistema {
 	
 
 		public static void main(String[] args) {
+						//CREA PARTIDA		
+			//CREA VENTANA DE MENU DE SELECCION
 			
 			//Crear nueva ventana
-			ViewTablero tableroView = new ViewTablero();
-			ControlTablero controladorTablero = new ControlTablero(tableroView);
-			tableroView.controlador= controladorTablero;
-			tableroView.IniciarVentana();
+//			ViewTablero tableroView = new ViewTablero();
+//			ControlTablero controladorTablero = new ControlTablero(tableroView);
+//			tableroView.controlador= controladorTablero;
+//			
 			
 			
 //			Partida partida1 = new Partida(); 
