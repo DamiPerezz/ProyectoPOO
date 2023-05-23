@@ -19,7 +19,7 @@ public class ViewTablero extends JFrame {
 	public JFrame marco;
 	public JTable tablero;
 	public JButton boton;
-	private JLabel valores[][];
+	public JLabel valores[][];
 	public ControlTablero controlador;
 	
 	public static void main(String [] args) {

@@ -10,11 +10,22 @@ public class Tablero {
 	private int contadorIntentos;
 	
 	
+	
 
 	//private ArrayList<Palabra> diccionario; //Lista de todas las palabras
 	
 	static Diccionario D = new Diccionario();
 	
+	
+	
+	public int getContadorIntentos() {
+		return contadorIntentos;
+	}
+
+	public void setContadorIntentos(int contadorIntentos) {
+		this.contadorIntentos = contadorIntentos;
+	}
+
 	public Tablero() {
 		super();
 		
