@@ -1,26 +1,33 @@
 package Control;
 
+
+
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
+import javax.swing.JOptionPane;
+
 import Model.*;
-/*
+import View.ViewTablero;
+
 public class ControlTablero implements ActionListener{
-	ViewTablero tablero;
+	
+	ViewTablero ventana;
 	Tablero t = new Tablero();
-	String palabraCorrecta  
+	String palabraCorrecta;
 	
 	public ControlTablero (ViewTablero win) {
-		tablero = win;
+		ventana = win;
+		
 	}
 
 	
 	public void actionPerformed (ActionEvent e) {
-		if(e.getSource() == tablero.probar) {
-			
+		if(e.getSource() == ventana.boton) {
+			String input = JOptionPane.showInputDialog("Introduce palabra");
 			
 		}
 		
 	}
 }
-*/
+

@@ -1,6 +1,7 @@
 package Control;
 import Model.*;
 //import View.ViewTablero;
+import View.ViewTablero;
 
 public class Sistema {
 	public static Diccionario diccionario = new Diccionario();
@@ -8,18 +9,24 @@ public class Sistema {
 
 		public static void main(String[] args) {
 			
-			/*//////////////////////////////////////////////////////////////////////////////
-			Partida partida1 = new Partida(); 
-			Partida partida2 = new Partida();
+			//Crear nueva ventana
+			ViewTablero tableroView = new ViewTablero();
+			ControlTablero controladorTablero = new ControlTablero(tableroView);
+			tableroView.controlador= controladorTablero;
+			tableroView.IniciarVentana();
 			
-			System.out.println(partida1.getPalabraCorrecta());
-			System.out.println(partida2.getPalabraCorrecta());
-			*///////////////////////////////////////////////////////////////////////////////
 			
-//			System.out.print(diccionario);
-			System.out.print(diccionario.sacarPalabras("../hola.txt"));
-//			System.out.println(diccionario.getListaPalabra());
-			
+//			Partida partida1 = new Partida(); 
+//			Partida partida2 = new Partida();
+//			
+//			System.out.println(partida1.getPalabraCorrecta());
+//			System.out.println(partida2.getPalabraCorrecta());
+//			
+//			
+////			System.out.print(diccionario);
+//			System.out.print(diccionario.sacarPalabras("../hola.txt"));
+////			System.out.println(diccionario.getListaPalabra());
+//			
 			//ViewTablero tablero1 = new ViewTablero();
 			
 			

@@ -103,15 +103,16 @@ public class Diccionario {
 
 		
 		ArrayList<String> listaPalabras = new ArrayList<String>();
-        try {
+		ArrayList<String> palabras = new ArrayList<String>();
+		try {
             File fichero = new File(DiccionarioFile);
             Scanner sc = new Scanner(fichero);
-            ArrayList<String> palabras = new ArrayList<String>();
+            
             int[] num = new int[620];
             int j=0;
             char aux =' ';
+            
             while (sc.hasNextLine()) {
-
                 String linea = sc.nextLine();
                 String[] separador = linea.split(";");
                  palabras.add(separador[0]);
@@ -138,10 +139,10 @@ public class Diccionario {
         }
 
         if (listaPalabras.isEmpty()) {
-            return null; // por si no encuentre palabras en el archivo
+             // por si no encuentre palabras en el archivo
         }
-        return listaPalabras;
-
+        
+        return palabras;
 
     }
 
