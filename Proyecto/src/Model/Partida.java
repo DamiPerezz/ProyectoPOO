@@ -18,6 +18,12 @@ public class Partida {
 		tablero.setContadorIntentos(0);
 		codPartida=0;
 	}
+	public Partida(Usuario u, String palabraCorrect, int cod) {
+		this.user = u;
+		this.palabraCorrecta= palabraCorrect;
+		this.codPartida= cod;
+		
+	}
 
 	private Tablero tablero;
 	private Usuario user;
@@ -57,7 +63,9 @@ public class Partida {
 		if (estadoANI == 'A' ||estadoANI == 'N' ||estadoANI == 'I') {
 
 			//Aquí me he quirao con la conversion al String ;p
-			String partidaTXT = String.valueOf(codPartida) + ";" + palabraCorrecta + ";" + user.getNombre() + ";" + String.valueOf(tablero.getContadorIntentos()) + ";" + String.valueOf(estadoANI); 
+			
+			String[] arrayT =  tablero.getArrayTablero();
+			String partidaTXT = String.valueOf(codPartida) + ";" + palabraCorrecta + ";" + user.getNombre() + ";" + String.valueOf(tablero.getContadorIntentos()) + ";" + String.valueOf(estadoANI) + ";"+ arrayT[0]+ ";"+ arrayT[1]+ ";"+ arrayT[2]+ ";"+ arrayT[3]+ ";"+ arrayT[4]+ ";"+ arrayT[5]; 
 			
 			File fichero = new File("../registroPartidas.txt");
 			try {
@@ -74,36 +82,77 @@ public class Partida {
 			
 		}else {
 			//Excepcion de datos incorrectos
-		}
-		
-		
-		
+		}	
 	}
 	
-	
-	public static Usuario SeleccionarUsuario() {
-		Usuario user = new Usuario();
-		Scanner teclado = new Scanner(System.in);
-		System.out.println("Introduce tu nombre de usuario");
-		String username=teclado.next();
-		//Carga los usuarios del fichero de listaUsuarios
-		ArrayList<Usuario>TotalUsuarios= user.CargarUsuarios();
-		//Primero comprueba si existe un usuario con ese nombre, si existe recorre la lista y asigna a nuestro usuario ese usuario
-		if (user.ComprobarExistenciaUsuario(TotalUsuarios, username) == true) {
-			for(Usuario u: TotalUsuarios) {
-				if(u.getNombre().equals(username)) {
-					user = u;
-				}
+	public Partida CargarPartida() {
+		File fichero = new File("../registroPartidas.txt");
+		String ultimaPartida = "";
+		try {
+			Scanner sc = new Scanner(fichero);
+			while(sc.hasNextLine()) {
+				ultimaPartida = sc.nextLine();
 			}
-		} //Si no existe un usuario que se llame de esa forma lo crea en el momento 
-		else {
-			user.setNombre(username);
-			user.setPartidasJugadas(0);
+					
+		}catch(Exception ex) {
+			ex.getMessage();
 		}
+		//2;fenix;Paco;4;A
+		String[] variables = ultimaPartida.split(";");
+		//CODIGO PARTIDA
+		char cod = variables[0].charAt(0);
+		int codPartida = Character.getNumericValue(cod);
+		//PALABRA CORRECTA
+		String palabraCorrecta = variables[1];
+		//NOMBRE USUARIO
+		String usuario = variables[2];
+		
+		char intentos = variables[3].charAt(0);
+		int contadorIntentos = Character.getNumericValue(cod);
+		char estado = variables[4].charAt(0);
+		String[] palabraTablero= new String[5];
+		for(int i=5;i<9;i++) {
+			for (int j=0;j<4;j++) {
+				palabraTablero[j] = variables[i];
+			}
+		}
+		Usuario u = new Usuario (usuario);
+		
+		Partida p = new Partida (u, palabraCorrecta,codPartida);
+		
+		p.tablero.setArrayTablero(palabraTablero);
+		p.tablero.setContadorIntentos(contadorIntentos);
+		p.tablero.setArrayTablero(palabraTablero);
 		
 		
-		return user;
+		return p;
+		
 	}
+	
+	//Metodo por consola, no usar
+//	public static Usuario SeleccionarUsuario() {
+//		Usuario user = new Usuario();
+//		Scanner teclado = new Scanner(System.in);
+//		System.out.println("Introduce tu nombre de usuario");
+//		String username=teclado.next();
+//		//Carga los usuarios del fichero de listaUsuarios
+//		ArrayList<Usuario>TotalUsuarios= user.CargarUsuarios();
+//		//Primero comprueba si existe un usuario con ese nombre, si existe recorre la lista y asigna a nuestro usuario ese usuario
+//		if (user.ComprobarExistenciaUsuario(TotalUsuarios, username) == true) {
+//			for(Usuario u: TotalUsuarios) {
+//				if(u.getNombre().equals(username)) {
+//					user = u;
+//				}
+//			}
+//		} //Si no existe un usuario que se llame de esa forma lo crea en el momento 
+//		else {
+//			user.setNombre(username);
+//			user.setPartidasJugadas(0);
+//		}
+//		
+//		
+//		return user;
+//	}
 	
 	
 	

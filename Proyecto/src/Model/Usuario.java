@@ -25,8 +25,9 @@ public class Usuario {
 		this.partidasJugadas = partidasJugadas;
 	}
 	
-	public Usuario() {
+	public Usuario(String nombre) {
 		super();
+		this.nombre=nombre;
 		// TODO Auto-generated constructor stub
 	}
 	public Usuario(String nombre, int partidasJugadas) {

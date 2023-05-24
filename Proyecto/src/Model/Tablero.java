@@ -4,10 +4,10 @@ import java.util.ArrayList;
 
 public class Tablero {
 	
-	private String[] arrayTablero;
+	private String[] arrayTablero = new String[5];
 	private char[] arrayInput;		//habrá que pasarlo a String para la comparación?
 	private String palabraInput;
-	private int contadorIntentos = 0;
+	private int contadorIntentos;
 	
 	
 	
@@ -18,6 +18,12 @@ public class Tablero {
 	
 	
 	
+	public String[] getArrayTablero() {
+		return arrayTablero;
+	}
+	public void setArrayTablero(String[] arrayTablero) {
+		this.arrayTablero = arrayTablero;
+	}
 	public int getContadorIntentos() {
 		return contadorIntentos;
 	}
@@ -27,12 +33,16 @@ public class Tablero {
 	public Tablero() {
 		super();
 		
+		
 	}
 	public static ArrayList<Palabra> getDiccionario(){
 		ArrayList<Palabra> diccionario = D.getListaPalabra();
 		return diccionario;
 	}
-	
+	public void guardarPalabra(String palabraUser) {
+		arrayTablero[this.contadorIntentos] = palabraUser;
+		
+	}
 	
 	//Elige una palabra random del diccionario y la guarda en String palabra
 	public static String getPalabraRandom() {
