@@ -1,30 +1,40 @@
 package Control;
 import java.io.File;
 import java.io.FileWriter;
-
+import Control.*;
 import Model.*;
+import View.PantallaInicio;
 //import View.ViewTablero;
 import View.ViewTablero;
 
 public class Sistema {
 	///public static Diccionario diccionario = new Diccionario();
-	
+		public static void IniciarSistema() {
+			PantallaInicio menuPrincipal = new PantallaInicio();
+			ControlVentanaInicio controladorPrincipal = new ControlVentanaInicio(menuPrincipal);
+			menuPrincipal.controlador = controladorPrincipal;
+			menuPrincipal.Iniciar();
+			
+		}
 
 		public static void main(String[] args) {
 						//CREA PARTIDA		
-			//CREA VENTANA DE MENU DE SELECCION
 			
+						IniciarSistema();
+						
 			//Crear nueva ventana
 			//ViewTablero tableroView = new ViewTablero();
 //			ControlTablero controladorTablero = new ControlTablero(tableroView);
 //			tableroView.controlador= controladorTablero;
 //			
-			
-			Usuario iker = new Usuario("iker");
-			Partida partida1 = new Partida(iker); 
-			System.out.println(partida1.getPalabraCorrecta());
-			//Partida partida2 = new Partida();
 //			
+//			Usuario iker = new Usuario("iker");
+//			Partida partida1 = new Partida(iker); 
+//			System.out.println(partida1.getPalabraCorrecta());
+//			//Partida partida2 = new Partida();
+//		Usuario dami = new Usuario("Damian");
+//			Partida partida2 = new Partida(dami); 
+//			System.out.println(partida2.getPalabraCorrecta());
 			
 //			System.out.println(partida1.getPalabraCorrecta());
 //			System.out.println(partida2.getPalabraCorrecta());

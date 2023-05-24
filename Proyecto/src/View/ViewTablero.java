@@ -28,7 +28,9 @@ public class ViewTablero extends JFrame {
 	private JMenu opciones;
 	public JMenuItem salir;
 	public JMenuItem guardarPartida;
-	
+	public JFrame pantallaFinal;
+	public JLabel mensajeFinalPerder;
+	public JLabel mensajeFinalGanar;
 	
 //	public static void main(String [] args) {
 //		
@@ -50,6 +52,18 @@ public class ViewTablero extends JFrame {
 		marco.setSize(400,600);
 		marco.setResizable(false);
 		
+		pantallaFinal= new JFrame();
+		pantallaFinal.setSize(200,200);
+		pantallaFinal.setResizable(false);
+		
+		
+		mensajeFinalPerder = new JLabel("Has perdido");
+		mensajeFinalPerder.setPreferredSize(new Dimension(50,50));
+		mensajeFinalGanar = new JLabel("Ole campeon!!");
+		mensajeFinalGanar.setPreferredSize(new Dimension(50,50));
+		
+		pantallaFinal.add(mensajeFinalPerder);
+		pantallaFinal.add(mensajeFinalGanar);
 		
 		JPanel panel= new JPanel();
 		panel.setLayout(new GridLayout(5,5));

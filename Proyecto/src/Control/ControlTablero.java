@@ -63,8 +63,16 @@ public class ControlTablero implements ActionListener{
 		//Le pasa la palabra y el PC
 		//Dependiendo del PC cambia los valores de los JLabels asociados 
 		
+		ComprobarFinDePartida();
 		
 		
+	}
+	public void ComprobarFinDePartida() {
+		
+		if(partida.getContadorIntentos()>4) {
+			ventana.pantallaFinal.setVisible(true);
+			
+		}
 		
 	}
 	

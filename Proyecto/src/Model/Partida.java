@@ -28,6 +28,7 @@ public class Partida {
 		ventana.controlador = controlador;
 		controlador.partida=this;
 		ventana.IniciarVentana();
+		System.out.println(palabraCorrecta);
 			}
 	
 	
@@ -182,7 +183,9 @@ public class Partida {
 
 
 	public void hasGanado() {
-		System.out.println("metodo hasGanado");
+		ventana.mensajeFinalPerder.setVisible(false);
+		ventana.mensajeFinalGanar.setVisible(true);
+		ventana.pantallaFinal.setVisible(true);
 		
 	}
 	
