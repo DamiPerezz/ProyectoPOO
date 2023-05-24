@@ -1,2 +1,0 @@
-2;fenix;Paco;4;A
-1;fenix;Damián;2;I

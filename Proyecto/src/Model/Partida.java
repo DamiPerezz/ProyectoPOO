@@ -116,13 +116,13 @@ public class Partida {
 			//Aquí me he quirao con la conversion al String ;p
 			
 			String[] arrayT =  this.getArrayTablero();
-			String partidaTXT = String.valueOf(codPartida) + ";" + palabraCorrecta + ";" + user.getNombre() + ";" + String.valueOf(this.getContadorIntentos()) + ";" + String.valueOf(estadoANI) + ";"+ arrayT[0]+ ";"+ arrayT[1]+ ";"+ arrayT[2]+ ";"+ arrayT[3]+ ";"+ arrayT[4]+ ";"+ arrayT[5]; 
+			String partidaTXT = String.valueOf(codPartida) + ";" + palabraCorrecta + ";" + user.getNombre() + ";" + String.valueOf(this.getContadorIntentos()) + ";" + String.valueOf(estadoANI) + ";"+ arrayT[0]+ ";"+ arrayT[1]+ ";"+ arrayT[2]+ ";"+ arrayT[3]+ ";"+ arrayT[4]; 
 			
-			File fichero = new File("../registroPartidas.txt");
+			File fichero = new File("../../registroPartidas.txt");
 			try {
 
 				FileWriter escritor = new FileWriter(fichero,true);
-				escritor.write("Probando probando" + "\n");
+				escritor.write(partidaTXT);
 				//escritor.write(partidaTXT + "\n");
 				
 			}catch(Exception ex) {
@@ -186,6 +186,7 @@ public class Partida {
 		ventana.mensajeFinalPerder.setVisible(false);
 		ventana.mensajeFinalGanar.setVisible(true);
 		ventana.pantallaFinal.setVisible(true);
+		GuardarPartidaEnFichero('A');
 		
 	}
 	
