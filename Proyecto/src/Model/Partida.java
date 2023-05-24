@@ -4,38 +4,88 @@ import java.io.FileWriter;
 import java.util.ArrayList;
 import java.util.Scanner;
 
+import Control.ControlTablero;
+import View.*;
+
 
 public class Partida {
 	
 	
-	
+	//CREAR PARTIDA NUEVA///////////////////////////////////////////////
 	public Partida(Usuario u) {
 		super();
 		this.user=u;
 		// TODO Auto-generated constructor stub
-		palabraCorrecta = Tablero.getPalabraRandom();
-		tablero = new Tablero();
-		tablero.setContadorIntentos(0);
+		palabraCorrecta = Tablero.getPalabraRandom(this);
+		//tablero = new Tablero();
+		//tablero.setContadorIntentos(0);
 		codPartida=0;
-	}
+		this.contadorIntentos=0;
+		//VISTA Y CONTROL///////////////////////////////////////////////
+		this.ventana = new ViewTablero();
+		
+		this.controlador = new ControlTablero(ventana);
+		ventana.controlador = controlador;
+		controlador.partida=this;
+		ventana.IniciarVentana();
+			}
+	
+	
+	
 	public Partida(Usuario u, String palabraCorrect, int cod) {
 		this.user = u;
 		this.palabraCorrecta= palabraCorrect;
 		this.codPartida= cod;
 		
 	}
+	
 
-	private Tablero tablero;
+	//private Tablero tablero;
 	private Usuario user;
 	private String palabraCorrecta;
+	private int contadorIntentos;
+	private String[] arrayTablero = new String[5];
 	//Para el codigo de partida necesito un ejemplo de partida forzado,
 	//Usare un metodo que lea la ultima partida y le añada un 1
 	private int codPartida;
+	private Diccionario diccionario = new Diccionario();
+	private ViewTablero ventana;
+	private ControlTablero controlador;
 	
+	public Diccionario getDiccionario() {
+		return diccionario;
+	}
+	
+	public String[] getArrayTablero() {
+		return arrayTablero;
+	}
+	public void setArrayTablero(String[] arrayTablero) {
+		this.arrayTablero = arrayTablero;
+	}
+	public int getContadorIntentos() {
+		return contadorIntentos;
+	}
+	public void setContadorIntentos(int contadorIntentos) {
+		this.contadorIntentos = contadorIntentos;
+	}
 	public String getPalabraCorrecta() {
 		
 		return palabraCorrecta;
 	}
+	
+	public void guardarPalabra(String palabraUser) {
+		arrayTablero[this.contadorIntentos] = palabraUser;
+		
+	}
+	
+	public void incrementarContador() {
+		this.contadorIntentos ++;
+	}
+	
+//	public static ArrayList<Palabra> getDiccionario(){
+//		ArrayList<Palabra> diccionario = Diccionario.getListaPalabra();
+//		return diccionario;
+//	}
 	
 	/*
 	public Partida SacarPartidaDeFichero(){
@@ -64,8 +114,8 @@ public class Partida {
 
 			//Aquí me he quirao con la conversion al String ;p
 			
-			String[] arrayT =  tablero.getArrayTablero();
-			String partidaTXT = String.valueOf(codPartida) + ";" + palabraCorrecta + ";" + user.getNombre() + ";" + String.valueOf(tablero.getContadorIntentos()) + ";" + String.valueOf(estadoANI) + ";"+ arrayT[0]+ ";"+ arrayT[1]+ ";"+ arrayT[2]+ ";"+ arrayT[3]+ ";"+ arrayT[4]+ ";"+ arrayT[5]; 
+			String[] arrayT =  this.getArrayTablero();
+			String partidaTXT = String.valueOf(codPartida) + ";" + palabraCorrecta + ";" + user.getNombre() + ";" + String.valueOf(this.getContadorIntentos()) + ";" + String.valueOf(estadoANI) + ";"+ arrayT[0]+ ";"+ arrayT[1]+ ";"+ arrayT[2]+ ";"+ arrayT[3]+ ";"+ arrayT[4]+ ";"+ arrayT[5]; 
 			
 			File fichero = new File("../registroPartidas.txt");
 			try {
@@ -120,12 +170,19 @@ public class Partida {
 		
 		Partida p = new Partida (u, palabraCorrecta,codPartida);
 		
-		p.tablero.setArrayTablero(palabraTablero);
-		p.tablero.setContadorIntentos(contadorIntentos);
-		p.tablero.setArrayTablero(palabraTablero);
+		p.setArrayTablero(palabraTablero);
+		p.setContadorIntentos(contadorIntentos);
+		p.setArrayTablero(palabraTablero);
 		
 		
 		return p;
+		
+	}
+
+
+
+	public void hasGanado() {
+		System.out.println("metodo hasGanado");
 		
 	}
 	

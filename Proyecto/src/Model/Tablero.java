@@ -5,63 +5,64 @@ import java.util.ArrayList;
 
 public class Tablero {
 	
-	private String[] arrayTablero = new String[5];
+	//private String[] arrayTablero = new String[5];
 	private char[] arrayInput;		//habrá que pasarlo a String para la comparación?
 	private String palabraInput;
-	private int contadorIntentos;
+	//private int contadorIntentos;
 	
 	
 	
 
 	//private ArrayList<Palabra> diccionario; //Lista de todas las palabras
 	
-	static Diccionario D = new Diccionario();
+	//static Diccionario D = new Diccionario();
 	
 	
 	
-	public String[] getArrayTablero() {
-		return arrayTablero;
-	}
-	public void setArrayTablero(String[] arrayTablero) {
-		this.arrayTablero = arrayTablero;
-	}
-	public int getContadorIntentos() {
-		return contadorIntentos;
-	}
-	public void setContadorIntentos(int contadorIntentos) {
-		this.contadorIntentos = contadorIntentos;
-	}
+//	public String[] getArrayTablero() {
+//		return arrayTablero;
+//	}
+//	public void setArrayTablero(String[] arrayTablero) {
+//		this.arrayTablero = arrayTablero;
+//	}
+//	public int getContadorIntentos() {
+//		return contadorIntentos;
+//	}
+//	public void setContadorIntentos(int contadorIntentos) {
+//		this.contadorIntentos = contadorIntentos;
+//	}
 	public Tablero() {
 		super();
 		
 		
 	}
-	public static ArrayList<Palabra> getDiccionario(){
-		ArrayList<Palabra> diccionario = D.getListaPalabra();
-		return diccionario;
-	}
-	public void guardarPalabra(String palabraUser) {
-		arrayTablero[this.contadorIntentos] = palabraUser;
-		
-	}
+//	public static ArrayList<Palabra> getDiccionario(){
+//		ArrayList<Palabra> diccionario = Diccionario.getListaPalabra();
+//		return diccionario;
+//	}
+//	public void guardarPalabra(String palabraUser) {
+//		arrayTablero[this.contadorIntentos] = palabraUser;
+//		
+//	}
 	
 	//Elige una palabra random del diccionario y la guarda en String palabra
-	public static String getPalabraRandom() {
-		int numAleatorio = (int) (Math.random() * Tablero.getDiccionario().size());
+	public static String getPalabraRandom(Partida p) {
+		int numAleatorio = (int) (Math.random() * p.getDiccionario().getListaPalabras().size());
 		//System.out.println(numAleatorio);
-		Palabra instanciaPalabra = Tablero.getDiccionario().get(numAleatorio);
+		Palabra instanciaPalabra = p.getDiccionario().getListaPalabras().get(numAleatorio);
 		String palabra = instanciaPalabra.getPalabra();
 		return palabra;
 	}
 	
-	public void incrementarContador() {
-		this.contadorIntentos ++;
-	}
+//	public void incrementarContador() {
+//		this.contadorIntentos ++;
+//	}
 	
 	
 	//Devuelve un string con un indicador(de el resultado de la comparación) en cada carácter Ejemplo: "xyzzy"
 	public static String comprobarPalabra(String input, String palabraCorrecta) {
 		  String pistas = "";
+		  
 		  
 		  for (int x = 0; x < input.length(); x++) {
 			  
@@ -93,7 +94,7 @@ public class Tablero {
 			color = Color.orange;
 		}
 		if (l == 'z') {			//Fatal error (letra fallada)
-			color = Color.orange;
+			color = Color.red;
 		}
 		
 		return color;

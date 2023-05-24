@@ -12,9 +12,14 @@ import View.ViewTablero;
 
 public class ControlTablero implements ActionListener{
 	
-	ViewTablero ventana;
-	String palabraCorrecta;
-	Partida p;
+	private ViewTablero ventana;
+	
+//	public void setP(Partida p) {
+//		this.p = p;
+//	}
+
+	private String palabraCorrecta;
+	public Partida partida;
 	private Tablero t = new Tablero();
 	
 	public ControlTablero (ViewTablero win) {
@@ -38,14 +43,17 @@ public class ControlTablero implements ActionListener{
 			for(int i=0;i<palabraUser.length();i++) {	//coloca cada letra en su sitio en la ventana
 				ventana.valores[contadorPrograma][i].setText(String.valueOf(letras[i]));
 			}
-			t.guardarPalabra(palabraUser);  //manda la palabra al tablero para almacenarla
-			t.incrementarContador();
+			partida.guardarPalabra(palabraUser);  //manda la palabra al tablero para almacenarla
+			partida.incrementarContador();
 			//PISTAS//////////////////////////////////////////////////////////////////////////////////////
-			String pistas = t.comprobarPalabra(palabraUser,p.getPalabraCorrecta());
+			String pistas = t.comprobarPalabra(palabraUser,partida.getPalabraCorrecta());
 			for(int i=0;i<palabraUser.length();i++) {	//cambia el color de cada letra
 				ventana.valores[contadorPrograma][i].setForeground(t.seleccionarColor(pistas.charAt(i)));;
 			}
-			
+			if(pistas.equals("xxxxx")){
+				
+				partida.hasGanado();
+			}
 			
 		}
 		else {
@@ -63,7 +71,8 @@ public class ControlTablero implements ActionListener{
 	public void actionPerformed (ActionEvent e) {
 		if(e.getSource() == ventana.boton) {
 			String input = JOptionPane.showInputDialog("Introduce palabra");
-			ActualizarTablero(t.getContadorIntentos(), input);
+			ActualizarTablero(partida.getContadorIntentos(), input);
+			
 			
 			
 		}

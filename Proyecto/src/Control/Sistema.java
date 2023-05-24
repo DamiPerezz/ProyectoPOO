@@ -7,7 +7,7 @@ import Model.*;
 import View.ViewTablero;
 
 public class Sistema {
-	public static Diccionario diccionario = new Diccionario();
+	///public static Diccionario diccionario = new Diccionario();
 	
 
 		public static void main(String[] args) {
@@ -15,15 +15,17 @@ public class Sistema {
 			//CREA VENTANA DE MENU DE SELECCION
 			
 			//Crear nueva ventana
-			ViewTablero tableroView = new ViewTablero();
+			//ViewTablero tableroView = new ViewTablero();
 //			ControlTablero controladorTablero = new ControlTablero(tableroView);
 //			tableroView.controlador= controladorTablero;
 //			
 			
-			Usuario iker = new Usuario();
+			Usuario iker = new Usuario("iker");
 			Partida partida1 = new Partida(iker); 
-//			Partida partida2 = new Partida();
+			System.out.println(partida1.getPalabraCorrecta());
+			//Partida partida2 = new Partida();
 //			
+			
 //			System.out.println(partida1.getPalabraCorrecta());
 //			System.out.println(partida2.getPalabraCorrecta());
 //			

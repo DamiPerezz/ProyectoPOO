@@ -30,21 +30,21 @@ public class ViewTablero extends JFrame {
 	public JMenuItem guardarPartida;
 	
 	
-	public static void main(String [] args) {
-		
-		ViewTablero m = new ViewTablero();  
-		
-	}
+//	public static void main(String [] args) {
+//		
+//		ViewTablero m = new ViewTablero();  
+//		
+//	}
 	
-	public ViewTablero() {
-		
-		IniciarVentana();
-		
-	}
+//	public ViewTablero() {
+//		
+//		IniciarVentana();
+//		
+//	}
 	
 	public  void IniciarVentana() {
 		
-		controlador = new ControlTablero(this); 
+		//controlador = new ControlTablero(this); 
 		
 		marco= new JFrame();
 		marco.setSize(400,600);

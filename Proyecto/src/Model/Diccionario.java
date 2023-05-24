@@ -7,11 +7,18 @@ import java.io.*;
 
 public class Diccionario {
 
-	private ArrayList<Palabra> listaPalabras = TodasPalabrasDicc(sacarPalabras("../hola.txt"), sacarDificultad("../hola.txt")); 
 	
+	private ArrayList<Palabra> listaPalabras; //TodasPalabrasDicc(sacarPalabras("../hola.txt"), sacarDificultad("../hola.txt")); 
+	
+	
+	
+	public ArrayList<Palabra> getListaPalabras() {
+		return listaPalabras;
+	}
+
 	public Diccionario() {
 		super();
-		// TODO Auto-generated constructor stub
+		listaPalabras = TodasPalabrasDicc(sacarPalabras("../hola.txt"), sacarDificultad("../hola.txt"));
 	}
 	
 	public String toString () {
@@ -148,7 +155,7 @@ public class Diccionario {
 
 	public ArrayList<Palabra> getListaPalabra() {
 		// TODO Auto-generated method stub
-		return this.listaPalabras;
+		return listaPalabras;
 	}
 
 }
