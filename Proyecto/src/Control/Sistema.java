@@ -15,13 +15,13 @@ public class Sistema {
 			//CREA VENTANA DE MENU DE SELECCION
 			
 			//Crear nueva ventana
-//			ViewTablero tableroView = new ViewTablero();
+			ViewTablero tableroView = new ViewTablero();
 //			ControlTablero controladorTablero = new ControlTablero(tableroView);
 //			tableroView.controlador= controladorTablero;
 //			
 			
-			
-//			Partida partida1 = new Partida(); 
+			Usuario iker = new Usuario();
+			Partida partida1 = new Partida(iker); 
 //			Partida partida2 = new Partida();
 //			
 //			System.out.println(partida1.getPalabraCorrecta());

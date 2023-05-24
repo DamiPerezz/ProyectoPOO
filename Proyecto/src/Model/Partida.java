@@ -30,6 +30,8 @@ public class Partida {
 		
 		return palabraCorrecta;
 	}
+	
+	/*
 	public Partida SacarPartidaDeFichero(){
 		//Formato codPartida;palabraCorrecta;user;Tablero.contadorIntentos;Estado
 		File fichero = new File("../registroPartidas.txt");
@@ -48,6 +50,7 @@ public class Partida {
 		
 		return p;
 	}
+	*/
 
 	public void GuardarPartidaEnFichero(char estadoANI) {
 		//Formato codPartida;palabraCorrecta;user;Tablero.contadorIntentos;Estado

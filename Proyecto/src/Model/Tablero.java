@@ -7,7 +7,7 @@ public class Tablero {
 	private String[] arrayTablero;
 	private char[] arrayInput;		//habrá que pasarlo a String para la comparación?
 	private String palabraInput;
-	private int contadorIntentos;
+	private int contadorIntentos = 0;
 	
 	
 	

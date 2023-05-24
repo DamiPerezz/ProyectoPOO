@@ -14,7 +14,7 @@ public class ControlTablero implements ActionListener{
 	
 	ViewTablero ventana;
 	String palabraCorrecta;
-	private Tablero t;
+	private Tablero t = new Tablero();
 	
 	public ControlTablero (ViewTablero win) {
 		ventana = win;
@@ -30,13 +30,16 @@ public class ControlTablero implements ActionListener{
 			char[] letras = new char[5];	
 			for(int i=0;i<palabraUser.length();i++) {
 				letras[i]=palabraUser.charAt(i);
+				//Incrementamos contador
+				
 			}
 			for(int i=0;i<palabraUser.length();i++) {
 				ventana.valores[contadorPrograma][i].setText(String.valueOf(letras[i]));
 			}
+			t.incrementarContador();
 		}
 		else {
-//			
+			System.out.print("Error: Se ha introducido una palabra que no tiene 5 dígitos :(");
 //			Prompt de longitud incorrecta
 		}
 		//Le pasa la palabra y el PC
@@ -51,6 +54,7 @@ public class ControlTablero implements ActionListener{
 		if(e.getSource() == ventana.boton) {
 			String input = JOptionPane.showInputDialog("Introduce palabra");
 			ActualizarTablero(t.getContadorIntentos(), input);
+			
 			
 		}
 		if(e.getSource() == ventana.salir) {

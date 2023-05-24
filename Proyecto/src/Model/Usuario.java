@@ -25,12 +25,6 @@ public class Usuario {
 		this.partidasJugadas = partidasJugadas;
 	}
 	
-	
-	
-	
-	
-	
-	
 	public Usuario() {
 		super();
 		// TODO Auto-generated constructor stub
