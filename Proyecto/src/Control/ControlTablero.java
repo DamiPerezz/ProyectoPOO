@@ -14,6 +14,7 @@ public class ControlTablero implements ActionListener{
 	
 	ViewTablero ventana;
 	String palabraCorrecta;
+	Partida p;
 	private Tablero t = new Tablero();
 	
 	public ControlTablero (ViewTablero win) {
@@ -26,17 +27,26 @@ public class ControlTablero implements ActionListener{
 //		Comprueba que la palabra sea correcta
 //		
 		if (palabraUser.length()==5) {
+			//VENTANA////////////////////////////////////////////////////////////////////////////////////
 			//Convertirmo el String a char
 			char[] letras = new char[5];	
-			for(int i=0;i<palabraUser.length();i++) {
+			for(int i=0;i<palabraUser.length();i++) {	//pasa la String palabraUser a un char[] letras
 				letras[i]=palabraUser.charAt(i);
 				//Incrementamos contador
 				
 			}
-			for(int i=0;i<palabraUser.length();i++) {
+			for(int i=0;i<palabraUser.length();i++) {	//coloca cada letra en su sitio en la ventana
 				ventana.valores[contadorPrograma][i].setText(String.valueOf(letras[i]));
 			}
+			t.guardarPalabra(palabraUser);  //manda la palabra al tablero para almacenarla
 			t.incrementarContador();
+			//PISTAS//////////////////////////////////////////////////////////////////////////////////////
+			String pistas = t.comprobarPalabra(palabraUser,p.getPalabraCorrecta());
+			for(int i=0;i<palabraUser.length();i++) {	//cambia el color de cada letra
+				ventana.valores[contadorPrograma][i].setForeground(t.seleccionarColor(pistas.charAt(i)));;
+			}
+			
+			
 		}
 		else {
 			System.out.print("Error: Se ha introducido una palabra que no tiene 5 dígitos :(");

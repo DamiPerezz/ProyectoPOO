@@ -1,5 +1,6 @@
 package Model;
 
+import java.awt.Color;
 import java.util.ArrayList;
 
 public class Tablero {
@@ -59,7 +60,7 @@ public class Tablero {
 	
 	
 	//Devuelve un string con un indicador(de el resultado de la comparación) en cada carácter Ejemplo: "xyzzy"
-	private static String comprobarPalabra(String input, String palabraCorrecta) {
+	public static String comprobarPalabra(String input, String palabraCorrecta) {
 		  String pistas = "";
 		  
 		  for (int x = 0; x < input.length(); x++) {
@@ -82,5 +83,20 @@ public class Tablero {
 		  }
 		  return pistas;
 		}
+	
+	public Color seleccionarColor(char l) {
+		Color color = null;
+		if (l == 'x') {			//Letra acertada
+			color = Color.green;
+		}
+		if (l == 'y') {			//Letra existente (en otra posición)
+			color = Color.orange;
+		}
+		if (l == 'z') {			//Fatal error (letra fallada)
+			color = Color.orange;
+		}
+		
+		return color;
+	}
 
 }
