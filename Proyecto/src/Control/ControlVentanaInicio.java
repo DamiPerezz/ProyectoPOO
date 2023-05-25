@@ -71,7 +71,7 @@ public class ControlVentanaInicio implements ActionListener {
 		String usuario = variables[2];
 		
 		char intentos = variables[3].charAt(0);
-		int contadorIntentos = Character.getNumericValue(cod);
+		int contadorIntentos = Character.getNumericValue(intentos);
 		char estado = variables[4].charAt(0);
 		int numIndex=0;
 		for(int i=5;i<variables.length;i++) {
