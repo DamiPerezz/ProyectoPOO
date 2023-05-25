@@ -77,9 +77,10 @@ public class ControlVentanaInicio implements ActionListener {
 		for(int i=5;i<variables.length;i++) {
 			numIndex++;
 		}
-		String[] palabraTablero = new String [numIndex];
+		String[] palabraTablero = new String [5];
 		for(int i=0;i<numIndex;i++) {
-			palabraTablero[i] = variables[4+numIndex];
+			palabraTablero[i] = variables[5+i];
+			;
 		}
 		
 //		String[] palabraTablero= new String[5];

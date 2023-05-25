@@ -97,6 +97,7 @@ public class ControlTablero implements ActionListener{
 			System.exit(0);
 		}
 		if(e.getSource() == ventana.guardarPartida) {
+			partida.GuardarPartidaEnFichero('I');
 			System.exit(0);
 		}
 		

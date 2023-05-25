@@ -198,7 +198,13 @@ public  void CargarVentana() {
 		int linea = controlador.partida.getContadorIntentos();
 		char[][] letras = new char[palabrasT.length][5];
 		int z=0;
+		int y=5;
 		for(int i=0;i<palabrasT.length;i++) {
+			if(palabrasT[i]==null) {
+				y--;
+			}		
+		}
+		for(int i=0;i<y;i++) {
 			for(int j=0;j<5;j++) {
 				letras[i][j] = palabrasT[i].charAt(j);
 				valores[i][j] = new JLabel(String.valueOf(letras[i][j]));
