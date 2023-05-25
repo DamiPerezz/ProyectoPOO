@@ -28,9 +28,12 @@ public class ViewTablero extends JFrame {
 	private JMenu opciones;
 	public JMenuItem salir;
 	public JMenuItem guardarPartida;
-	public JFrame pantallaFinal;
+	public JFrame pantallaFinalG;
+	public JFrame pantallaFinalP;
 	public JLabel mensajeFinalPerder;
 	public JLabel mensajeFinalGanar;
+	public JLabel mensajeNoLetras;
+	public JFrame noLetras;
 	
 //	public static void main(String [] args) {
 //		
@@ -52,18 +55,29 @@ public class ViewTablero extends JFrame {
 		marco.setSize(400,600);
 		marco.setResizable(false);
 		
-		pantallaFinal= new JFrame();
-		pantallaFinal.setSize(200,200);
-		pantallaFinal.setResizable(false);
+		pantallaFinalP= new JFrame();
+		pantallaFinalP.setSize(200,200);
+		pantallaFinalP.setResizable(false);
+		
+		pantallaFinalG= new JFrame();
+		pantallaFinalG.setSize(200,200);
+		pantallaFinalG.setResizable(false);
+		
+		noLetras= new JFrame();
+		noLetras.setSize(250,200);
+		noLetras.setResizable(false);
 		
 		
-		mensajeFinalPerder = new JLabel("maricon");
+		mensajeFinalPerder = new JLabel("Has perdido");
 		mensajeFinalPerder.setPreferredSize(new Dimension(50,50));
 		mensajeFinalGanar = new JLabel("Ole campeon!!");
 		mensajeFinalGanar.setPreferredSize(new Dimension(50,50));
+		mensajeNoLetras = new JLabel("Introduce una palabra con 5 letras");
+		mensajeNoLetras.setPreferredSize(new Dimension(50,50));
 		
-		pantallaFinal.add(mensajeFinalPerder);
-		pantallaFinal.add(mensajeFinalGanar);
+		pantallaFinalP.add(mensajeFinalPerder);
+		pantallaFinalG.add(mensajeFinalGanar);
+		noLetras.add(mensajeNoLetras);
 		
 		JPanel panel= new JPanel();
 		panel.setLayout(new GridLayout(5,5));
@@ -117,4 +131,3 @@ public class ViewTablero extends JFrame {
 	}
 	
 }
-

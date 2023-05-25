@@ -58,19 +58,26 @@ public class ControlTablero implements ActionListener{
 		}
 		else {
 			System.out.print("Error: Se ha introducido una palabra que no tiene 5 dígitos :(");
+			ventana.noLetras.setVisible(true);
 //			Prompt de longitud incorrecta
 		}
 		//Le pasa la palabra y el PC
 		//Dependiendo del PC cambia los valores de los JLabels asociados 
 		
-		ComprobarFinDePartida();
+		ComprobarFinDePartida(palabraUser);
 		
 		
 	}
-	public void ComprobarFinDePartida() {
+	public void ComprobarFinDePartida(String palabraUser) {
 		
 		if(partida.getContadorIntentos()>4) {
-			ventana.pantallaFinal.setVisible(true);
+			if(t.comprobarPalabra(palabraUser,partida.getPalabraCorrecta()).equals("xxxxx")) {
+				ventana.pantallaFinalG.setVisible(true);
+			}
+			else {
+				ventana.pantallaFinalP.setVisible(true);
+			}
+			
 			
 		}
 		

@@ -209,7 +209,7 @@ public class Partida {
 	public void hasGanado() {
 		ventana.mensajeFinalPerder.setVisible(false);
 		ventana.mensajeFinalGanar.setVisible(true);
-		ventana.pantallaFinal.setVisible(true);
+		ventana.pantallaFinalG.setVisible(true);
 		GuardarPartidaEnFichero('A');
 		
 	}
