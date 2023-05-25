@@ -14,7 +14,7 @@ public class Partida {
 	//CREAR PARTIDA NUEVA///////////////////////////////////////////////
 	public Partida(Usuario u) {
 		super();
-		this.user=u;
+		this.setUser(u);
 		// TODO Auto-generated constructor stub
 		palabraCorrecta = Tablero.getPalabraRandom(this);
 		//tablero = new Tablero();
@@ -34,9 +34,16 @@ public class Partida {
 	
 	
 	public Partida(Usuario u, String palabraCorrect, int cod) {
-		this.user = u;
+		this.setUser(u);
 		this.palabraCorrecta= palabraCorrect;
 		this.codPartida= cod;
+		//CONTROL Y VISTA
+		this.ventana = new ViewTablero();
+		this.controlador = new ControlTablero(ventana);
+		ventana.controlador = controlador;
+		controlador.partida=this;
+		ventana.IniciarVentana();
+		System.out.println(palabraCorrecta);
 		
 	}
 	
@@ -115,14 +122,30 @@ public class Partida {
 
 			//Aquí me he quirao con la conversion al String ;p
 			
-			String[] arrayT =  this.getArrayTablero();
-			String partidaTXT = String.valueOf(codPartida) + ";" + palabraCorrecta + ";" + user.getNombre() + ";" + String.valueOf(this.getContadorIntentos()) + ";" + String.valueOf(estadoANI) + ";"+ arrayT[0]+ ";"+ arrayT[1]+ ";"+ arrayT[2]+ ";"+ arrayT[3]+ ";"+ arrayT[4]; 
+			String[] longitud =	this.getArrayTablero();
+			int l= 0;
+			for(int i=0;i<longitud.length;i++) {
+				if(longitud[i] == null) {
+					l++;
+				}
+			}
 			
-			File fichero = new File("../../registroPartidas.txt");
+			String arrToString = "";
+			String[] arrayT = new String [5-l];
+			for (int i=0;i<arrayT.length; i++) {
+				arrayT[i] = this.arrayTablero[i];
+				arrToString = arrToString + arrayT[i] + ";";
+			}
+			 
+			String partidaTXT = String.valueOf(codPartida) + ";" + palabraCorrecta + ";" + getUser().getNombre() + ";" + String.valueOf(this.getContadorIntentos()) + ";" + String.valueOf(estadoANI) + ";"+ arrToString; 
+			
+			
+			//File fichero = new File("D:\\Escritorio\\Asignaturas primero universidad\\partidasRegistro.txt");
 			try {
 
-				FileWriter escritor = new FileWriter(fichero,true);
+				FileWriter escritor = new FileWriter("../resgistroPartidas.txt");
 				escritor.write(partidaTXT);
+				escritor.close();
 				//escritor.write(partidaTXT + "\n");
 				
 			}catch(Exception ex) {
@@ -137,7 +160,7 @@ public class Partida {
 	}
 	
 	public Partida CargarPartida() {
-		File fichero = new File("../registroPartidas.txt");
+		File fichero = new File("../resgistroPartidas.txt");
 		String ultimaPartida = "";
 		try {
 			Scanner sc = new Scanner(fichero);
@@ -164,6 +187,7 @@ public class Partida {
 		String[] palabraTablero= new String[5];
 		for(int i=5;i<9;i++) {
 			for (int j=0;j<4;j++) {
+				
 				palabraTablero[j] = variables[i];
 			}
 		}
@@ -188,6 +212,18 @@ public class Partida {
 		ventana.pantallaFinal.setVisible(true);
 		GuardarPartidaEnFichero('A');
 		
+	}
+
+
+
+	public Usuario getUser() {
+		return user;
+	}
+
+
+
+	public void setUser(Usuario user) {
+		this.user = user;
 	}
 	
 	//Metodo por consola, no usar

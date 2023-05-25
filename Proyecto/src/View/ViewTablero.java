@@ -57,7 +57,7 @@ public class ViewTablero extends JFrame {
 		pantallaFinal.setResizable(false);
 		
 		
-		mensajeFinalPerder = new JLabel("Has perdido");
+		mensajeFinalPerder = new JLabel("maricon");
 		mensajeFinalPerder.setPreferredSize(new Dimension(50,50));
 		mensajeFinalGanar = new JLabel("Ole campeon!!");
 		mensajeFinalGanar.setPreferredSize(new Dimension(50,50));
@@ -117,3 +117,4 @@ public class ViewTablero extends JFrame {
 	}
 	
 }
+
