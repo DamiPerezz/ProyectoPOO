@@ -10,7 +10,15 @@ public class Diccionario {
 	
 	private ArrayList<Palabra> listaPalabras; //TodasPalabrasDicc(sacarPalabras("../hola.txt"), sacarDificultad("../hola.txt")); 
 	
-	
+	public ArrayList<Palabra> filtrarDiccionario(int d){
+		ArrayList<Palabra> diccionarioFiltrado = new ArrayList<Palabra>();
+		for(Palabra p:listaPalabras) {
+			if (p.dificultad==d) {
+				diccionarioFiltrado.add(p);
+			}
+		}
+		return diccionarioFiltrado;
+	}
 	
 	public ArrayList<Palabra> getListaPalabras() {
 		return listaPalabras;

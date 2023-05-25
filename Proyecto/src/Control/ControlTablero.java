@@ -19,7 +19,7 @@ public class ControlTablero implements ActionListener{
 //	}
 
 	private String palabraCorrecta;
-	public  Partida partida;
+	public Partida partida;
 	private Tablero t = new Tablero();
 	
 	public ControlTablero (ViewTablero win) {
@@ -33,6 +33,8 @@ public class ControlTablero implements ActionListener{
 //		
 		if (palabraUser.length()==5) {
 			//VENTANA////////////////////////////////////////////////////////////////////////////////////
+			
+		
 			//Convertirmo el String a char
 			char[] letras = new char[5];	
 			for(int i=0;i<palabraUser.length();i++) {	//pasa la String palabraUser a un char[] letras
@@ -41,7 +43,7 @@ public class ControlTablero implements ActionListener{
 				
 			}
 			for(int i=0;i<palabraUser.length();i++) {	//coloca cada letra en su sitio en la ventana
-				ventana.valores[contadorPrograma][i].setText(String.valueOf(letras[i]));
+				ventana.valores[contadorPrograma][i].setText(String.valueOf(letras[i]).toUpperCase());
 			}
 			partida.guardarPalabra(palabraUser);  //manda la palabra al tablero para almacenarla
 			partida.incrementarContador();
