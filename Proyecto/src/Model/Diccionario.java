@@ -161,6 +161,39 @@ public class Diccionario {
 
     }
 
+	public static ArrayList<String> darPista(String DiccionarioFile) {
+
+		ArrayList<String> pistas = new ArrayList<String>();
+		ArrayList<String> listaPistas = new ArrayList<String>();
+		
+		char aux= ' ';
+		int j=0;
+		
+		try {
+			File fichero = new File(DiccionarioFile);
+			Scanner sc = new Scanner(fichero);
+
+			while (sc.hasNextLine()) {
+				String linea = sc.nextLine();
+				String[] separador = linea.split("/");
+//				 if (separador.length > 1) {
+//		                pistas.add(separador[0]);
+//		            }
+				pistas.add(separador[0]);
+				listaPistas.add(Arrays.toString(separador));
+				aux= separador[1].charAt(0);
+				j++;
+				
+				}
+			sc.close();
+		}catch (Exception e) {
+			System.out.println("No se puede leer el archivo" + e.getMessage());
+		}
+		System.out.println("PSS. tiene pista: " + pistas.get(0));
+	    return pistas;
+	}
+	
+	
 	public ArrayList<Palabra> getListaPalabra() {
 		// TODO Auto-generated method stub
 		return listaPalabras;

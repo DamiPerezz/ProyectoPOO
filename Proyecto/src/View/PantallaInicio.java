@@ -36,7 +36,7 @@ public class PantallaInicio extends JFrame{
 	    frame.getContentPane().add(panel);
 
 	    JLabel textoBienvenida = new JLabel("Bienvenido a Wordle!");
-	    textoBienvenida.setPreferredSize(new Dimension(100, 100));
+	    textoBienvenida.setPreferredSize(new Dimension(150, 100));
 
 	    // Crea los botones
 	    crearpartidaButton = new JButton("Crear Partida");

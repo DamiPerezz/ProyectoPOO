@@ -1,6 +1,6 @@
 coche;2
 nieve;2
-hueso;1
+hueso;1/tenemos m�s de 200
 titan;2
 flujo;1
 disco;1
@@ -11,7 +11,7 @@ atril;1
 ganso;1
 negro;1
 botar;1
-bruja;1
+bruja;1/las hay con escoba
 errar;3
 girar;2
 grasa;2
@@ -20,7 +20,7 @@ tonto;3
 monja;1
 bonus;1
 cotar;1
-oveja;1
+oveja;1/las hay churras y merinas
 caido;1
 burro;2
 falsa;2
@@ -46,7 +46,7 @@ bueno;1
 crema;1
 china;1
 acabo;2
-tinta;2
+tinta;2/la hay china
 espia;1
 dulce;1
 zorro;3
@@ -58,7 +58,7 @@ jaleo;1
 jurco;1
 tarta;3
 abeja;2
-samba;2
+samba;2/se baila en portugu�s
 lista;1
 envio;1
 gusto;1
@@ -77,7 +77,7 @@ falta;2
 signo;1
 libre;1
 peaje;2
-otoño;3
+oto�o;3
 sushi;2
 corta;1
 gemir;1
@@ -95,7 +95,7 @@ lituo;1
 lindo;1
 albur;1
 danza;2
-koala;2
+koala;2/es lento y australiano
 licra;1
 orden;1
 rubio;1
@@ -130,7 +130,7 @@ trece;2
 laser;1
 polar;1
 lugar;1
-silla;2
+silla;2/las hay con cuatro patas
 misil;2
 actor;1
 arena;2
@@ -156,7 +156,7 @@ koine;1
 menor;1
 dieta;1
 ligar;1
-señor;1
+se�or;1
 laico;1
 media;1
 cesta;1
@@ -222,7 +222,7 @@ grave;1
 vital;1
 lleno;2
 sexta;1
-dueño;1
+due�o;1
 aldea;1
 faena;2
 creer;2
@@ -330,11 +330,11 @@ pauta;2
 anual;2
 mecha;1
 manso;1
-leñar;1
+le�ar;1
 flama;2
 robar;2
 metro;1
-señal;1
+se�al;1
 hogar;1
 abuso;1
 poner;1
@@ -419,7 +419,7 @@ cague;1
 tecla;1
 deseo;2
 carga;2
-bañar;2
+ba�ar;2
 cuero;1
 golpe;1
 conga;1
@@ -551,9 +551,9 @@ arepa;2
 menta;1
 palco;1
 dicho;1
-dueña;1
+due�a;1
 ileso;1
-araña;3
+ara�a;3
 farol;1
 limar;1
 rumbo;1
@@ -579,7 +579,7 @@ acera;2
 hidra;1
 culto;1
 guiso;1
-cañon;1
+ca�on;1
 cenar;1
 amigo;1
 fallo;2
@@ -603,7 +603,7 @@ acabe;2
 sorda;1
 ruina;1
 siglo;1
-sueño;1
+sue�o;1
 braza;2
 nicho;1
 pecho;1
