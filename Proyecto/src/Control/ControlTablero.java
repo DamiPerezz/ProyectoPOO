@@ -19,7 +19,7 @@ public class ControlTablero implements ActionListener{
 //	}
 
 	private String palabraCorrecta;
-	public Partida partida;
+	public  Partida partida;
 	private Tablero t = new Tablero();
 	
 	public ControlTablero (ViewTablero win) {

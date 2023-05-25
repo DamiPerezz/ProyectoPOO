@@ -129,5 +129,113 @@ public class ViewTablero extends JFrame {
 		
 		
 	}
+public  void CargarVentana() {
+		
+		//controlador = new ControlTablero(this); 
+		
+		marco= new JFrame();
+		marco.setSize(400,600);
+		marco.setResizable(false);
+		
+		pantallaFinalP= new JFrame();
+		pantallaFinalP.setSize(200,200);
+		pantallaFinalP.setResizable(false);
+		
+		pantallaFinalG= new JFrame();
+		pantallaFinalG.setSize(200,200);
+		pantallaFinalG.setResizable(false);
+		
+		noLetras= new JFrame();
+		noLetras.setSize(250,200);
+		noLetras.setResizable(false);
+		
+		
+		mensajeFinalPerder = new JLabel("Has perdido");
+		mensajeFinalPerder.setPreferredSize(new Dimension(50,50));
+		mensajeFinalGanar = new JLabel("Ole campeon!!");
+		mensajeFinalGanar.setPreferredSize(new Dimension(50,50));
+		mensajeNoLetras = new JLabel("Introduce una palabra con 5 letras");
+		mensajeNoLetras.setPreferredSize(new Dimension(50,50));
+		
+		pantallaFinalP.add(mensajeFinalPerder);
+		pantallaFinalG.add(mensajeFinalGanar);
+		noLetras.add(mensajeNoLetras);
+		
+		JPanel panel= new JPanel();
+		panel.setLayout(new GridLayout(5,5));
+		
+		
+		//Añade barra de opciones
+		barramenu = new JMenuBar();
+		opciones = new JMenu("Opciones");
+		barramenu.add(opciones);
+		salir = new JMenuItem("Salir");
+		opciones.add(salir);
+		salir.addActionListener(controlador);
+		guardarPartida = new JMenuItem("Guardar y Salir");
+		guardarPartida.addActionListener(controlador);
+		opciones.add(guardarPartida);
+		marco.setJMenuBar(barramenu);
+		barramenu.setVisible(true);
+		
+		valores = new JLabel[5][5];
+		
+//		for (int i=0;i<valores.length;i++) {
+//			for(int j=0;j<valores[0].length;j++) {
+//				
+//			valores[i][j] = new JLabel("-");	
+//			valores[i][j].setPreferredSize(new Dimension(50,50));
+//			
+//			panel.add(valores[i][j]);
+//			
+//			}
+//		}
+//		
+		////////////PARA ACTUALZIAR TABLERO AL CARGAR PARTIDA CON LAS PALABRAS////////
+		
+		String[] palabrasT = controlador.partida.getArrayTablero();
+		
+		int linea = controlador.partida.getContadorIntentos();
+		char[][] letras = new char[palabrasT.length][5];
+		int z=0;
+		for(int i=0;i<palabrasT.length;i++) {
+			for(int j=0;j<5;j++) {
+				letras[i][j] = palabrasT[i].charAt(j);
+				valores[i][j] = new JLabel(String.valueOf(letras[i][j]));
+				valores[i][j].setPreferredSize(new Dimension(50,50));
+				panel.add(valores[i][j]);
+			}
+			z++;
+		}
+		for (z=z;z<valores.length;z++) {
+			for(int j=0;j<valores[0].length;j++) {
+				
+			valores[z][j] = new JLabel("-");	
+			valores[z][j].setPreferredSize(new Dimension(50,50));
+			
+			panel.add(valores[z][j]);
+			
+			}
+		}
+		
+		marco.setLayout(new BorderLayout());
+		marco.add(panel,BorderLayout.CENTER);
+		
+		boton = new JButton ("Introducir palabra");
+		
+		boton.addActionListener(controlador);
+		
+		marco.add(boton, BorderLayout.SOUTH);
+		
+		marco.pack();
+		boton.setVisible(true);
+		marco.setVisible(true);
+		panel.setVisible(true);
+		
+		
+		
+		
+		
+	}
 	
 }

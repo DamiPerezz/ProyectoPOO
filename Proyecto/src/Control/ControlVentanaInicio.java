@@ -90,7 +90,7 @@ public class ControlVentanaInicio implements ActionListener {
 //		}
 		Usuario u = new Usuario (usuario);
 		
-		Partida p = new Partida (u, palabraCorrecta,codPartida);
+		Partida p = new Partida (u, palabraCorrecta,codPartida,palabraTablero,contadorIntentos);
 		
 		p.setArrayTablero(palabraTablero);
 		p.setContadorIntentos(contadorIntentos);

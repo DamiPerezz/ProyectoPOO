@@ -33,16 +33,18 @@ public class Partida {
 	
 	
 	
-	public Partida(Usuario u, String palabraCorrect, int cod) {
+	public Partida(Usuario u, String palabraCorrect, int cod,String ArrayTablero[], int counter) {
 		this.setUser(u);
 		this.palabraCorrecta= palabraCorrect;
 		this.codPartida= cod;
 		//CONTROL Y VISTA
+		this.contadorIntentos = counter;
 		this.ventana = new ViewTablero();
 		this.controlador = new ControlTablero(ventana);
 		ventana.controlador = controlador;
 		controlador.partida=this;
-		ventana.IniciarVentana();
+		this.arrayTablero = ArrayTablero;
+		ventana.CargarVentana();
 		System.out.println(palabraCorrecta);
 		
 	}
@@ -193,11 +195,11 @@ public class Partida {
 		}
 		Usuario u = new Usuario (usuario);
 		
-		Partida p = new Partida (u, palabraCorrecta,codPartida);
+		Partida p = new Partida (u, palabraCorrecta,codPartida,palabraTablero,contadorIntentos);
 		
 		p.setArrayTablero(palabraTablero);
 		p.setContadorIntentos(contadorIntentos);
-		p.setArrayTablero(palabraTablero);
+		
 		
 		
 		return p;
