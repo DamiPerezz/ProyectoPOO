@@ -34,6 +34,7 @@ public class ViewTablero extends JFrame {
 	public JLabel mensajeFinalGanar;
 	public JLabel mensajeNoLetras;
 	public JFrame noLetras;
+	public JMenu nombreUsuario;
 	
 //	public static void main(String [] args) {
 //		
@@ -85,6 +86,8 @@ public class ViewTablero extends JFrame {
 		
 		//Añade barra de opciones
 		barramenu = new JMenuBar();
+		
+		//OPCIONES DE PARTIDA
 		opciones = new JMenu("Opciones");
 		barramenu.add(opciones);
 		salir = new JMenuItem("Salir");
@@ -94,7 +97,14 @@ public class ViewTablero extends JFrame {
 		guardarPartida.addActionListener(controlador);
 		opciones.add(guardarPartida);
 		marco.setJMenuBar(barramenu);
+		//NOMBREUSUARIO
+				nombreUsuario = new JMenu(controlador.partida.getUser().getNombre());
+				nombreUsuario.setPreferredSize(new Dimension(50,50));
+				barramenu.add(nombreUsuario, BorderLayout.WEST);
+				nombreUsuario.setVisible(true);
+				
 		barramenu.setVisible(true);
+		
 		
 		valores = new JLabel[5][5];
 		

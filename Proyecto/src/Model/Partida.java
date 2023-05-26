@@ -161,7 +161,7 @@ public class Partida {
 		}	
 	}
 	
-	public Partida CargarPartida() {
+	public Partida CargarPartida() throws Excepcioness {
 		File fichero = new File("../resgistroPartidas.txt");
 		String ultimaPartida = "";
 		try {
@@ -186,6 +186,11 @@ public class Partida {
 		char intentos = variables[3].charAt(0);
 		int contadorIntentos = Character.getNumericValue(cod);
 		char estado = variables[4].charAt(0);
+		if(estado=='A') {
+			
+			throw new Excepcioness("La ultima partida esta finalizada, crea un nueva partida");
+			
+		}
 		String[] palabraTablero= new String[5];
 		for(int i=5;i<9;i++) {
 			for (int j=0;j<4;j++) {

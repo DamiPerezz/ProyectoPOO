@@ -7,6 +7,7 @@ import java.util.Scanner;
 
 import javax.swing.JOptionPane;
 
+import Model.Excepcioness;
 import Model.Partida;
 import Model.Usuario;
 import View.PantallaInicio;
@@ -25,9 +26,14 @@ public class ControlVentanaInicio implements ActionListener {
 		
 		if(e.getSource()==ventana.cargarPartidaButton) {
 			Usuario user = new Usuario (CargarUsuario());
-			Partida partida = CargarPartida();
-			partida.setUser(user);
-			System.out.println("Probando, probando");
+			try {
+				Partida partida = CargarPartida();
+				partida.setUser(user);
+			}catch(Excepcioness ex) {
+				System.out.println(ex.getMessage());
+			}
+			
+			
 		}
 		
 		
@@ -48,7 +54,7 @@ public class ControlVentanaInicio implements ActionListener {
 		
 		
 	}
-	public Partida CargarPartida() {
+	public Partida CargarPartida() throws Excepcioness {
 		File fichero = new File("../resgistroPartidas.txt");
 		String ultimaPartida = "";
 		try {
@@ -73,6 +79,11 @@ public class ControlVentanaInicio implements ActionListener {
 		char intentos = variables[3].charAt(0);
 		int contadorIntentos = Character.getNumericValue(intentos);
 		char estado = variables[4].charAt(0);
+if(estado=='A') {
+			
+			throw new Excepcioness("La ultima partida esta finalizada, crea un nueva partida");
+			
+		}
 		int numIndex=0;
 		for(int i=5;i<variables.length;i++) {
 			numIndex++;
