@@ -12,11 +12,11 @@ public class Partida {
 	
 	
 	//CREAR PARTIDA NUEVA///////////////////////////////////////////////
-	public Partida(Usuario u) {
+	public Partida(Usuario u,int dificultad) {
 		super();
 		this.setUser(u);
 		// TODO Auto-generated constructor stub
-		palabraCorrecta = Tablero.getPalabraRandom(this);
+		palabraCorrecta = Tablero.getPalabraRandom(this,dificultad);
 		//tablero = new Tablero();
 		//tablero.setContadorIntentos(0);
 		codPartida=0;
@@ -65,6 +65,7 @@ public class Partida {
 	public Diccionario getDiccionario() {
 		return diccionario;
 	}
+	
 	
 	public String[] getArrayTablero() {
 		return arrayTablero;

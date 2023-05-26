@@ -44,8 +44,14 @@ public class ControlVentanaInicio implements ActionListener {
 			 if(nombre == "" || nombre == " " ||nombre == null) {
 				 System.exit(0);
 			 }
+	    ///SELECCIONAR NIVEL DE DIFICULTAD/////////////////////////////////
+			 String dificultad = JOptionPane.showInputDialog("Selecciona el nivel de dificultad del 1 al 3:");
+//			 if(dificultad != "1" && dificultad!="2" && dificultad!="3") {
+//				 System.exit(0);
+//			 }
+			 
 			 Usuario user1 = new Usuario(nombre);
-			 Partida partida1 = new Partida(user1); 
+			 Partida partida1 = new Partida(user1,Integer.parseInt(dificultad)); 
 			 
 		}
 		if(e.getSource()==ventana.salirButton) {

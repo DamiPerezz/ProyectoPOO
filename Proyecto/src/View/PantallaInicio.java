@@ -28,7 +28,7 @@ public class PantallaInicio extends JFrame{
 	    // Crear la ventana
 	    JFrame frame = new JFrame();
 	    frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-	    frame.setSize(300, 700);
+	    frame.setSize(300, 675);
 
 	    // Crea el panel
 	    JPanel panel = new JPanel();

@@ -30,7 +30,7 @@ public class ViewTablero extends JFrame {
 	public JMenuItem guardarPartida;
 	public JFrame pantallaFinalG;
 	public JFrame pantallaFinalP;
-	public JLabel mensajeFinalPerder;
+	public JLabel mensajeFinalPerder= new JLabel();
 	public JLabel mensajeFinalGanar;
 	public JLabel mensajeNoLetras;
 	public JFrame noLetras;
@@ -47,7 +47,10 @@ public class ViewTablero extends JFrame {
 //		IniciarVentana();
 //		
 //	}
-	
+	public void setmensajeFinalPerder(String palabraCorrecta) {
+		mensajeFinalPerder = new JLabel("Has perdido, la palabra correcta era:"+ palabraCorrecta);
+		pantallaFinalP.add(mensajeFinalPerder);
+	}
 	public  void IniciarVentana() {
 		
 		//controlador = new ControlTablero(this); 
@@ -57,7 +60,7 @@ public class ViewTablero extends JFrame {
 		marco.setResizable(false);
 		
 		pantallaFinalP= new JFrame();
-		pantallaFinalP.setSize(200,200);
+		pantallaFinalP.setSize(300,200);
 		pantallaFinalP.setResizable(false);
 		
 		pantallaFinalG= new JFrame();
@@ -69,14 +72,14 @@ public class ViewTablero extends JFrame {
 		noLetras.setResizable(false);
 		
 		
-		mensajeFinalPerder = new JLabel("Has perdido");
+		//mensajeFinalPerder = new JLabel("error");//("Has perdido, la palabra correcta era:"+ );
 		mensajeFinalPerder.setPreferredSize(new Dimension(50,50));
 		mensajeFinalGanar = new JLabel("Ole campeon!!");
 		mensajeFinalGanar.setPreferredSize(new Dimension(50,50));
 		mensajeNoLetras = new JLabel("Introduce una palabra con 5 letras");
 		mensajeNoLetras.setPreferredSize(new Dimension(50,50));
 		
-		pantallaFinalP.add(mensajeFinalPerder);
+		
 		pantallaFinalG.add(mensajeFinalGanar);
 		noLetras.add(mensajeNoLetras);
 		

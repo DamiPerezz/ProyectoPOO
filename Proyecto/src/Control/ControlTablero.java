@@ -77,6 +77,7 @@ public class ControlTablero implements ActionListener{
 				ventana.pantallaFinalG.setVisible(true);
 			}
 			else {
+				ventana.setmensajeFinalPerder(partida.getPalabraCorrecta());
 				ventana.pantallaFinalP.setVisible(true);
 			}
 			
@@ -88,7 +89,7 @@ public class ControlTablero implements ActionListener{
 	public void actionPerformed (ActionEvent e) {
 		if(e.getSource() == ventana.boton) {
 			String input = JOptionPane.showInputDialog("Introduce palabra");
-			ActualizarTablero(partida.getContadorIntentos(), input);
+			ActualizarTablero(partida.getContadorIntentos(), input.toLowerCase());
 			
 			
 			

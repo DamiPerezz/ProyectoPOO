@@ -46,10 +46,10 @@ public class Tablero {
 //	}
 	
 	//Elige una palabra random del diccionario y la guarda en String palabra
-	public static String getPalabraRandom(Partida p) {
-		int numAleatorio = (int) (Math.random() * p.getDiccionario().getListaPalabras().size());
+	public static String getPalabraRandom(Partida p,int dificultad) {
+		int numAleatorio = (int) (Math.random() * p.getDiccionario().filtrarDiccionario(dificultad).size());
 		//System.out.println(numAleatorio);
-		Palabra instanciaPalabra = p.getDiccionario().getListaPalabras().get(numAleatorio);
+		Palabra instanciaPalabra = p.getDiccionario().filtrarDiccionario(dificultad).get(numAleatorio);
 		String palabra = instanciaPalabra.getPalabra();
 		return palabra;
 	}
