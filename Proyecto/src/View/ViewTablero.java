@@ -48,7 +48,7 @@ public class ViewTablero extends JFrame {
 //		
 //	}
 	public void setmensajeFinalPerder(String palabraCorrecta) {
-		mensajeFinalPerder = new JLabel("Has perdido, la palabra correcta era:"+ palabraCorrecta);
+		mensajeFinalPerder = new JLabel("Has perdido, la palabra correcta era: "+ palabraCorrecta);
 		pantallaFinalP.add(mensajeFinalPerder);
 	}
 	public  void IniciarVentana() {
@@ -74,9 +74,9 @@ public class ViewTablero extends JFrame {
 		
 		//mensajeFinalPerder = new JLabel("error");//("Has perdido, la palabra correcta era:"+ );
 		mensajeFinalPerder.setPreferredSize(new Dimension(50,50));
-		mensajeFinalGanar = new JLabel("Ole campeon!!");
+		mensajeFinalGanar = new JLabel("                  Ole campeon!!");
 		mensajeFinalGanar.setPreferredSize(new Dimension(50,50));
-		mensajeNoLetras = new JLabel("Introduce una palabra con 5 letras");
+		mensajeNoLetras = new JLabel("  Introduce una palabra con 5 letras");
 		mensajeNoLetras.setPreferredSize(new Dimension(50,50));
 		
 		

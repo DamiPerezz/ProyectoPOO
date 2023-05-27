@@ -11,8 +11,38 @@ public class Estadistica {
 		
 		this.TotalUsuarios= CargarUsuarios();
 		this.JugadorMasJugon= SacarJugadorMasJugon();
-		
+		this.JugadorMayorPorcentajeAdiv= JugadorMasAdivinacion();
+		this.JugadorMenorPorcentajeAdiv= JugadorMenorAdivinacion();
+		this.porcentajeMayorUsu= SacarPorcentajes(this.JugadorMayorPorcentajeAdiv);
+		this.porcentajeMenorUsu= SacarPorcentajes(this.JugadorMenorPorcentajeAdiv);
 	}
+	
+	
+	
+	public Usuario getJugadorMayorPorcentajeAdiv() {
+		return JugadorMayorPorcentajeAdiv;
+	}
+
+
+
+	public Usuario getJugadorMenorPorcentajeAdiv() {
+		return JugadorMenorPorcentajeAdiv;
+	}
+
+
+
+	public int getPorcentajeMayorUsu() {
+		return porcentajeMayorUsu;
+	}
+
+
+
+	public int getPorcentajeMenorUsu() {
+		return porcentajeMenorUsu;
+	}
+
+
+
 	public ArrayList<Usuario> CargarUsuarios() {
 		
 		File fichero= new File("listaUsuarios.txt");
@@ -54,6 +84,8 @@ public class Estadistica {
 	private Usuario JugadorMasJugon;
 	private Usuario JugadorMayorPorcentajeAdiv;
 	private Usuario JugadorMenorPorcentajeAdiv;
+	private int porcentajeMayorUsu;
+	private int porcentajeMenorUsu;
 	//Para el JugadorMasJugon
 	public Usuario getJugadorMasJugon() {
 		return JugadorMasJugon;
@@ -128,6 +160,21 @@ public class Estadistica {
 		}
 		return topG;
 	}
+	
+	public Usuario JugadorMenorAdivinacion() {
+		int porcentajeMenor =100;
+		Usuario loser = new Usuario ("loser", 0);
+		for(Usuario u:this.TotalUsuarios) {
+			int porcentajeU= SacarPorcentajes(u);
+			if(porcentajeU<porcentajeMenor) {
+				loser.setNombre(u.getNombre());
+				loser.setPartidasJugadas(u.getPartidasJugadas());
+			porcentajeMenor = porcentajeU;
+			}
+		}
+		return loser;
+	}
+	
 	public int SacarPorcentajes(Usuario u) {
 		//Este metodo va leyendo el fichero linea por linea y haciendo splits
 		//Si encuentra una línea en la que sea el nombre del usuario igual que el caracter index [2]
@@ -142,7 +189,7 @@ public class Estadistica {
 			while(sc.hasNextLine()) {
 				ultimaPartida = sc.nextLine();
 				String[] ultimaLinea = ultimaPartida.split(";");
-				if(ultimaLinea[2]==u.getNombre()) {
+				if(ultimaLinea[2].equals(u.getNombre())) {  //para la comparacion de las cadenas con == no funcionaba para mayor y menor adivinacion	
 					npart++;
 					char intentos = ultimaLinea[3].charAt(0);
 					int contadorIntentos = Character.getNumericValue(intentos);

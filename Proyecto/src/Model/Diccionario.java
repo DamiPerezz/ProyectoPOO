@@ -31,7 +31,7 @@ public class Diccionario {
 	
 	public String toString () {
 		for (int i=0; i<listaPalabras.size();i++) {
-			System.out.println("palabra:" + listaPalabras.get(i).palabra + "dificultad:" + listaPalabras.get(i).dificultad);
+			System.out.println("Palabra: " + listaPalabras.get(i).palabra + "Dificultad: " + listaPalabras.get(i).dificultad);
 		}
 		
 		return ("fsdafsadf");
@@ -105,7 +105,7 @@ public class Diccionario {
             sc.close();
 
         } catch (Exception e) {
-            System.out.println("no se puede leer el archivo" + e.getMessage());
+            System.out.println("No se puede leer el archivo" + e.getMessage());
         }
 
         
@@ -150,7 +150,7 @@ public class Diccionario {
             sc.close();
 
         } catch (Exception e) {
-            System.out.println("no se puede leer el archivo" + e.getMessage());
+            System.out.println("No se puede leer el archivo" + e.getMessage());
         }
 
         if (listaPalabras.isEmpty()) {

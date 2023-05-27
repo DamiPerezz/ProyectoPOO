@@ -8,6 +8,7 @@ import java.util.Scanner;
 public class Usuario {
 	
 	private String nombre;
+	//private int porcentaje;
 	private int partidasJugadas;
 	private ArrayList<Usuario> TotalUsuarios;
 	
