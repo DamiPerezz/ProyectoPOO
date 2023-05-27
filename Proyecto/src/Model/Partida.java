@@ -192,7 +192,7 @@ public class Partida {
 		char intentos = ultimaLinea[3].charAt(0);
 		int contadorIntentos = Character.getNumericValue(cod);
 		char estado = ultimaLinea[4].charAt(0);
-		if(estado=='A') {
+		if(estado=='A' || estado=='N') {
 			
 			throw new Excepcioness("La ultima partida esta finalizada, crea un nueva partida");
 			
@@ -225,7 +225,13 @@ public class Partida {
 		ventana.pantallaFinalG.setVisible(true);
 		GuardarPartidaEnFichero('A');
 		user.GuardarUsuario(this.user);
-		
+	}
+	public void hasPerdido() {
+//		ventana.mensajeFinalPerder.setVisible(true);
+//		ventana.mensajeFinalPerder.setVisible(false);
+//		ventana.pantallaFinalP.setVisible(true);
+		GuardarPartidaEnFichero('N');
+		user.GuardarUsuario(this.user);
 	}
 
 

@@ -32,3 +32,10 @@
 5;laico;Paco;3;A;lacos;laica;laico;
 6;conde;Damian;1;A;conde;
 7;macho;maria;5;A;macha;mache;micho;nicho;macho;
+8;lugar;Damiaaaaaaaaa;5;A;maric;pepas;tiras;rimas;lugar;
+9;nariz;Damiaaaa;5;A;pepes;naris;mariz;rimas;nariz;
+10;abrir;iker;5;N;nariz;mirar;rimar;malos;palos;
+2;arepa;Dami;5;N;gayyy;datos;patos;ratos;arepo;
+3;trono;iker;5;N;ploki;hjyuo;ertds;vbgtf;polij;
+4;girar;iker;5;N;asdgf;qwert;zxcvb;power;tuyds;
+5;atras;iker;5;N;asdsf;nchdb;wdtey;pordl;ehwyd;
