@@ -104,7 +104,7 @@ public class Usuario {
 		this.TotalUsuarios.add(u);
 		
 		try {
-			FileWriter fichero = new FileWriter("listaUsuarios.txt");
+			FileWriter fichero = new FileWriter("listaUsuarios.txt",true);
 			for(Usuario us: this.TotalUsuarios) {
 				fichero.write(us.nombre + ":" + us.partidasJugadas + ":" + "\n");
 			}

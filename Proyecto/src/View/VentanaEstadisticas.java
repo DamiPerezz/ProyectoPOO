@@ -38,7 +38,7 @@ public class VentanaEstadisticas extends JFrame {
 		
 		
 		//JUGADOR CON MAYOR % DE ADIVINACION
-		jugadorMayorAdivinacion= new JLabel ("  Jugador con Mayor Porcentaje de Adivinación -->    " + controlador.getStats().JugadorMasAdivinacion().getNombre() + " , " + "Porcentaje: " + controlador.getStats().getPorcentajeMayorUsu());
+		jugadorMayorAdivinacion= new JLabel ("  Jugador con Mayor Porcentaje de Adivinación -->    " + controlador.getStats().JugadorMasAdivinacion().getNombre() + " , " + "Porcentaje: " + controlador.getStats().getPorcentajeMayorUsu()+ "%");
 		
 		marco.add(jugadorMayorAdivinacion, BorderLayout.CENTER); 
 		//marco.add(jugadorMayorAdivinacion);
@@ -47,7 +47,7 @@ public class VentanaEstadisticas extends JFrame {
 		//JUGADOR CON MENOR % DE ADIVINACION
 		//int porcentaje = controlador.getStats().JugadorMenorAdivinacion();
 
-		jugadorMenorAdivinacion= new JLabel ("  Jugador con Menor Porcentaje de Adivinación -->    " + controlador.getStats().JugadorMenorAdivinacion().getNombre() + " , " +  "Porcentaje: " + controlador.getStats().getPorcentajeMenorUsu());
+		jugadorMenorAdivinacion= new JLabel ("  Jugador con Menor Porcentaje de Adivinación -->    " + controlador.getStats().JugadorMenorAdivinacion().getNombre() + " , " +  "Porcentaje: " + controlador.getStats().getPorcentajeMenorUsu()+ "%");
 		
 		marco.add(jugadorMenorAdivinacion, BorderLayout.WEST); 
 		//marco.add(jugadorMayorAdivinacion);

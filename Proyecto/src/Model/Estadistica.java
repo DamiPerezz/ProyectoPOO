@@ -47,12 +47,24 @@ public class Estadistica {
 		
 		File fichero= new File("listaUsuarios.txt");
 		String text="";
+		ArrayList<Usuario> usuarios = new ArrayList<Usuario>();
 		try {
 			Scanner sc = new Scanner(fichero);
 			
 			while(sc.hasNextLine()) {
 				
 				text= sc.next();
+				String users[] = text.split(";");
+				
+				
+				
+				for (int i=0;i<users.length;i++) {
+					
+					String[] info= users[i].split(":");
+					Usuario u = new Usuario(info[0],Integer.parseInt(info[1]));
+					usuarios.add(u);
+					
+				}
 			}
 			
 		}catch (Exception e) {
@@ -62,17 +74,7 @@ public class Estadistica {
 		
 		//Pasar de String a instancias 
 		
-		String users[] = text.split(";");
 		
-		ArrayList<Usuario> usuarios = new ArrayList<Usuario>();
-		
-		for (int i=0;i<users.length;i++) {
-			
-			String[] info= users[i].split(":");
-			Usuario u = new Usuario(info[0],Integer.parseInt(info[1]));
-			usuarios.add(u);
-			
-		}
 		
 		return usuarios;
 		
@@ -121,7 +123,7 @@ public class Estadistica {
 	public int RelacionesDePorcentaje(int intentos) {
 		
 		int porcentaje=0;
-		if (intentos<5 && intentos>0) {
+		if (intentos<6 && intentos>0) {
 			
 			switch(intentos) {
 			
@@ -151,7 +153,7 @@ public class Estadistica {
 		int porcentajeMayor =0;
 		Usuario topG = new Usuario ("topG", 0);
 		for(Usuario u:this.TotalUsuarios) {
-			int porcentajeU= SacarPorcentajes(u);
+			int porcentajeU= RelacionesDePorcentaje(SacarPorcentajes(u));
 			if(porcentajeU>porcentajeMayor) {
 			topG.setNombre(u.getNombre());
 			topG.setPartidasJugadas(u.getPartidasJugadas());
@@ -165,7 +167,7 @@ public class Estadistica {
 		int porcentajeMenor =100;
 		Usuario loser = new Usuario ("loser", 0);
 		for(Usuario u:this.TotalUsuarios) {
-			int porcentajeU= SacarPorcentajes(u);
+			int porcentajeU= RelacionesDePorcentaje(SacarPorcentajes(u));
 			if(porcentajeU<porcentajeMenor) {
 				loser.setNombre(u.getNombre());
 				loser.setPartidasJugadas(u.getPartidasJugadas());
@@ -184,6 +186,7 @@ public class Estadistica {
 		String ultimaPartida = "";
 		int npart=0;
 		int porcentaje=0;
+		int r=0;
 		try {
 			Scanner sc = new Scanner(fichero);
 			while(sc.hasNextLine()) {
@@ -193,12 +196,14 @@ public class Estadistica {
 					npart++;
 					char intentos = ultimaLinea[3].charAt(0);
 					int contadorIntentos = Character.getNumericValue(intentos);
-					porcentaje=(porcentaje + RelacionesDePorcentaje(contadorIntentos))/npart;
+					r=(porcentaje + RelacionesDePorcentaje(contadorIntentos));
 				}	
-			}		
+			}
+			porcentaje=r/npart;
 		}catch(Exception ex) {
 			ex.getMessage();
 	}
+		
 		return porcentaje;	
 	}
 }

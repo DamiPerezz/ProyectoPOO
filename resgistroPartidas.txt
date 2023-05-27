@@ -23,3 +23,12 @@
 6;corro;Pedro;1;A;corro;
 6;corro;Pedro;1;I;corro;
 7;tarta;Pedro;2;I;beber;comer;
+8;fusil;Damian;2;A;plato;fusil;
+9;doler;Damian;1;A;doler;
+10;flaco;Damian;2;A;flaca;flaco;
+2;zorro;Samuel;5;A;zorra;lista;pista;mista;zorro;
+3;nadie;Maria;3;A;nadia;edned;nadie;
+4;campo;Paco;3;A;campa;manta;campo;
+5;laico;Paco;3;A;lacos;laica;laico;
+6;conde;Damian;1;A;conde;
+7;macho;maria;5;A;macha;mache;micho;nicho;macho;
