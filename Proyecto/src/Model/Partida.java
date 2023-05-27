@@ -19,7 +19,7 @@ public class Partida {
 		palabraCorrecta = Tablero.getPalabraRandom(this,dificultad);
 		//tablero = new Tablero();
 		//tablero.setContadorIntentos(0);
-		codPartida=0;
+		codPartida= SacarCodigoUltimaPartida() +1;
 		this.contadorIntentos=0;
 		//VISTA Y CONTROL///////////////////////////////////////////////
 		this.ventana = new ViewTablero();
@@ -146,8 +146,8 @@ public class Partida {
 			//File fichero = new File("D:\\Escritorio\\Asignaturas primero universidad\\partidasRegistro.txt");
 			try {
 
-				FileWriter escritor = new FileWriter("../resgistroPartidas.txt");
-				escritor.write(partidaTXT);
+				FileWriter escritor = new FileWriter("../resgistroPartidas.txt",true);
+				escritor.write(partidaTXT + "\n");
 				escritor.close();
 				//escritor.write(partidaTXT + "\n");
 				
@@ -170,23 +170,28 @@ public class Partida {
 			while(sc.hasNextLine()) {
 				ultimaPartida = sc.nextLine();
 			}
+			if (ultimaPartida != null) {
+                Scanner lineaScanner = new Scanner(ultimaPartida);
+                String ultimaLinea = lineaScanner.next();
+                lineaScanner.close();
+            }
 					
 		}catch(Exception ex) {
 			ex.getMessage();
 		}
 		//2;fenix;Paco;4;A
-		String[] variables = ultimaPartida.split(";");
+		String[] ultimaLinea = ultimaPartida.split(";");
 		//CODIGO PARTIDA
-		char cod = variables[0].charAt(0);
+		char cod = ultimaLinea[0].charAt(0);
 		int codPartida = Character.getNumericValue(cod);
 		//PALABRA CORRECTA
-		String palabraCorrecta = variables[1];
+		String palabraCorrecta = ultimaLinea[1];
 		//NOMBRE USUARIO
-		String usuario = variables[2];
+		String usuario = ultimaLinea[2];
 		
-		char intentos = variables[3].charAt(0);
+		char intentos = ultimaLinea[3].charAt(0);
 		int contadorIntentos = Character.getNumericValue(cod);
-		char estado = variables[4].charAt(0);
+		char estado = ultimaLinea[4].charAt(0);
 		if(estado=='A') {
 			
 			throw new Excepcioness("La ultima partida esta finalizada, crea un nueva partida");
@@ -196,7 +201,7 @@ public class Partida {
 		for(int i=5;i<9;i++) {
 			for (int j=0;j<4;j++) {
 				
-				palabraTablero[j] = variables[i];
+				palabraTablero[j] = ultimaLinea[i];
 			}
 		}
 		Usuario u = new Usuario (usuario);
@@ -260,6 +265,33 @@ public class Partida {
 //		return user;
 //	}
 	
-	
+	public int SacarCodigoUltimaPartida() {
+		File fichero = new File("../resgistroPartidas.txt");
+		int codigo = 0;
+		String ultimaLinea= "";
+		
+		try {
+			Scanner lector= new Scanner(fichero);
+			
+			 while (lector.hasNextLine()) {
+	                ultimaLinea = lector.nextLine();
+	            }
+
+	            // Extraer el primer número de la última línea
+			 
+	            if (ultimaLinea != null) {
+	                Scanner lineaScanner = new Scanner(ultimaLinea);
+	                char numChar = lineaScanner.next().charAt(0);
+	                codigo = Character.getNumericValue(numChar);
+	                lineaScanner.close();
+	            }
+		}catch(Exception ex) {
+			ex.getMessage();
+		}
+		
+		
+		
+		return codigo;
+	}
 	
 }

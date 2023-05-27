@@ -35,7 +35,7 @@ public class ViewTablero extends JFrame {
 	public JLabel mensajeNoLetras;
 	public JFrame noLetras;
 	public JMenu nombreUsuario;
-	
+	public JMenuItem estadisticas;
 //	public static void main(String [] args) {
 //		
 //		ViewTablero m = new ViewTablero();  
@@ -96,6 +96,9 @@ public class ViewTablero extends JFrame {
 		salir = new JMenuItem("Salir");
 		opciones.add(salir);
 		salir.addActionListener(controlador);
+		estadisticas = new JMenuItem("Stats");
+		opciones.add(estadisticas);
+		estadisticas.addActionListener(controlador);
 		guardarPartida = new JMenuItem("Guardar y Salir");
 		guardarPartida.addActionListener(controlador);
 		opciones.add(guardarPartida);

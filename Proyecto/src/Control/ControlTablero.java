@@ -8,6 +8,7 @@ import java.awt.event.ActionListener;
 import javax.swing.JOptionPane;
 
 import Model.*;
+import View.VentanaEstadisticas;
 import View.ViewTablero;
 
 public class ControlTablero implements ActionListener{
@@ -87,13 +88,21 @@ public class ControlTablero implements ActionListener{
 	}
 	
 	public void actionPerformed (ActionEvent e) {
+		
+		
 		if(e.getSource() == ventana.boton) {
 			String input = JOptionPane.showInputDialog("Introduce palabra");
 			ActualizarTablero(partida.getContadorIntentos(), input.toLowerCase());
+		}
+		if(e.getSource() == ventana.estadisticas) {
 			
-			
+			VentanaEstadisticas statsWindow = new VentanaEstadisticas();
+			ControladorEstadisticas statsControl = new ControladorEstadisticas(statsWindow);
+			statsWindow.setControlador(statsControl);
+			statsWindow.Iniciar();
 			
 		}
+			
 		if(e.getSource() == ventana.salir) {
 			System.exit(0);
 		}
