@@ -219,6 +219,7 @@ public class Partida {
 		ventana.mensajeFinalGanar.setVisible(true);
 		ventana.pantallaFinalG.setVisible(true);
 		GuardarPartidaEnFichero('A');
+		user.GuardarUsuario(this.user);
 		
 	}
 

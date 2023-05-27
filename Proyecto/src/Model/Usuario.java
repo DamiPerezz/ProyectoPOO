@@ -6,8 +6,10 @@ import java.util.ArrayList;
 import java.util.Scanner;
 
 public class Usuario {
+	
 	private String nombre;
 	private int partidasJugadas;
+	private ArrayList<Usuario> TotalUsuarios;
 	
 	
 	public String getNombre() {
@@ -27,7 +29,26 @@ public class Usuario {
 	
 	public Usuario(String nombre) {
 		super();
-		this.nombre=nombre;
+		this.TotalUsuarios = CargarUsuarios();
+		ArrayList<Usuario> nuevosUsuarios = new ArrayList<Usuario>(this.TotalUsuarios);
+		if(ComprobarExistenciaUsuario(this.TotalUsuarios,nombre)==true) {
+			for (Usuario u: this.TotalUsuarios) {
+				if(u.getNombre().equals(nombre)) {
+					this.nombre=u.getNombre();
+					this.partidasJugadas = u.getPartidasJugadas()+1;
+					nuevosUsuarios.remove(u);
+					break;
+				}
+			}
+		}else {
+			this.nombre=nombre;
+			this.partidasJugadas=1;
+			
+		}
+		this.TotalUsuarios=nuevosUsuarios;
+		
+		
+		
 		// TODO Auto-generated constructor stub
 	}
 	public Usuario(String nombre, int partidasJugadas) {
@@ -36,6 +57,11 @@ public class Usuario {
 		this.partidasJugadas=partidasJugadas;
 		
 	}
+	
+	public void Añadir1AlNPartida (Usuario u) {
+		this.partidasJugadas++;
+	}
+	
  	public ArrayList<Usuario> CargarUsuarios() {
 		
 		File fichero= new File("listaUsuarios.txt");
@@ -73,9 +99,15 @@ public class Usuario {
 	}
 	public void GuardarUsuario(Usuario u) {
 		
+		
+		this.TotalUsuarios.add(u);
+		
 		try {
-			FileWriter fichero = new FileWriter("listaUsuarios.txt", true);
-			fichero.write(this.nombre + ":" + this.partidasJugadas + ";");
+			FileWriter fichero = new FileWriter("listaUsuarios.txt");
+			for(Usuario us: this.TotalUsuarios) {
+				fichero.write(us.nombre + ":" + us.partidasJugadas + ":" + "\n");
+			}
+			
 			
 			
 			fichero.close();

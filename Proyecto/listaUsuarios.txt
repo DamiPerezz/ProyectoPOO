@@ -1,1 +1,2 @@
-Damian:0;Pepe:1;
+Pedrito:2:
+Damian:1:
