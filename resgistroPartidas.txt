@@ -39,3 +39,4 @@
 3;trono;iker;5;N;ploki;hjyuo;ertds;vbgtf;polij;
 4;girar;iker;5;N;asdgf;qwert;zxcvb;power;tuyds;
 5;atras;iker;5;N;asdsf;nchdb;wdtey;pordl;ehwyd;
+6;error;Damian;2;A;errpr;error;

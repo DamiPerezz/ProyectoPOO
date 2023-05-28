@@ -22,27 +22,15 @@ public class Estadistica {
 	public Usuario getJugadorMayorPorcentajeAdiv() {
 		return JugadorMayorPorcentajeAdiv;
 	}
-
-
-
 	public Usuario getJugadorMenorPorcentajeAdiv() {
 		return JugadorMenorPorcentajeAdiv;
 	}
-
-
-
-	public int getPorcentajeMayorUsu() {
+	public float getPorcentajeMayorUsu() {
 		return porcentajeMayorUsu;
 	}
-
-
-
-	public int getPorcentajeMenorUsu() {
+	public float getPorcentajeMenorUsu() {
 		return porcentajeMenorUsu;
 	}
-
-
-
 	public ArrayList<Usuario> CargarUsuarios() {
 		
 		File fichero= new File("listaUsuarios.txt");
@@ -86,8 +74,8 @@ public class Estadistica {
 	private Usuario JugadorMasJugon;
 	private Usuario JugadorMayorPorcentajeAdiv;
 	private Usuario JugadorMenorPorcentajeAdiv;
-	private int porcentajeMayorUsu;
-	private int porcentajeMenorUsu;
+	private float porcentajeMayorUsu;
+	private float porcentajeMenorUsu;
 	//Para el JugadorMasJugon
 	public Usuario getJugadorMasJugon() {
 		return JugadorMasJugon;
@@ -120,9 +108,9 @@ public class Estadistica {
 	}
 	//Para el Porcentaje de adivinación
 	
-	public int RelacionesDePorcentaje(int intentos) {
+	public float RelacionesDePorcentaje(int intentos) {
 		
-		int porcentaje=0;
+		float porcentaje=0;
 		if (intentos<6 && intentos>0) {
 			
 			switch(intentos) {
@@ -150,10 +138,10 @@ public class Estadistica {
 		return porcentaje;
 	}
 	public Usuario JugadorMasAdivinacion() {
-		int porcentajeMayor =0;
+		float porcentajeMayor =0;
 		Usuario topG = new Usuario ("topG", 0);
 		for(Usuario u:this.TotalUsuarios) {
-			int porcentajeU= RelacionesDePorcentaje(SacarPorcentajes(u));
+			float porcentajeU= SacarPorcentajes(u);
 			if(porcentajeU>porcentajeMayor) {
 			topG.setNombre(u.getNombre());
 			topG.setPartidasJugadas(u.getPartidasJugadas());
@@ -164,10 +152,10 @@ public class Estadistica {
 	}
 	
 	public Usuario JugadorMenorAdivinacion() {
-		int porcentajeMenor =100;
+		float porcentajeMenor =100;
 		Usuario loser = new Usuario ("loser", 0);
 		for(Usuario u:this.TotalUsuarios) {
-			int porcentajeU= RelacionesDePorcentaje(SacarPorcentajes(u));
+			float porcentajeU= SacarPorcentajes(u);
 			if(porcentajeU<porcentajeMenor) {
 				loser.setNombre(u.getNombre());
 				loser.setPartidasJugadas(u.getPartidasJugadas());
@@ -177,16 +165,17 @@ public class Estadistica {
 		return loser;
 	}
 	
-	public int SacarPorcentajes(Usuario u) {
+	//Saca el porcentaje de cada usuario
+	public float SacarPorcentajes(Usuario u) {
 		//Este metodo va leyendo el fichero linea por linea y haciendo splits
 		//Si encuentra una línea en la que sea el nombre del usuario igual que el caracter index [2]
 		//Agrega uno a la variable auxiliar de partida encontradas y suma el porcentaje asignado
 		//al numero relacionado con el porcentaje de ese numero de intentos
 		File fichero = new File("../resgistroPartidas.txt");
 		String ultimaPartida = "";
-		int npart=0;
-		int porcentaje=0;
-		int r=0;
+		float npart=0;
+		float porcentaje=0;
+		float r=0;
 		try {
 			Scanner sc = new Scanner(fichero);
 			while(sc.hasNextLine()) {
@@ -197,6 +186,7 @@ public class Estadistica {
 					char intentos = ultimaLinea[3].charAt(0);
 					int contadorIntentos = Character.getNumericValue(intentos);
 					r=(porcentaje + RelacionesDePorcentaje(contadorIntentos));
+					System.out.println(u.getNombre()+":"+contadorIntentos+":"+ r);
 				}	
 			}
 			porcentaje=r/npart;
